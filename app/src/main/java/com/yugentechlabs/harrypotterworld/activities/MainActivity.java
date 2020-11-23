@@ -1,8 +1,10 @@
-package com.yugentechlabs.harrypotterworld;
+package com.yugentechlabs.harrypotterworld.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.yugentechlabs.harrypotterworld.R;
 
 public class MainActivity extends AppCompatActivity {
 
