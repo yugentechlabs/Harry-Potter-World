@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:background="#151129"
     android:foregroundTint="#FFFFFF"
-    tools:context=".activities.LoginSignup">
+    tools:context=".Activities.LoginSignup">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/login_layout"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="350dp"
         android:background="@drawable/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             app:layout_constraintBottom_toTopOf="@id/gamename"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -40,7 +40,7 @@
             android:text="Harry Potter World"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="50dp"
+            android:textSize="45dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
