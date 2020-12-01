@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.yugentechlabs.harrypotterworld.Adapters.MainAdapter;
 import com.yugentechlabs.harrypotterworld.R;
 
 public class QuizLevels extends AppCompatActivity {
 
+    int currentLevel=1;
     GridView gridView;
 
     @Override
@@ -30,15 +32,18 @@ public class QuizLevels extends AppCompatActivity {
         gridView.setAdapter(adapter);
 
 
-//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent intent=new Intent(getContext(), com.yugentechlabs.walled.Activities.Wallpaper.class);
-//                intent.putExtra("url",wallpaperURL.get(position));
-//                intent.putExtra("blurUrl",wallpaperBlurURL.get(position));
-//                startActivity(intent);
-//                //Toast.makeText(MainActivity.this, wallpaperURL.get(position), Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if((position+1)>currentLevel){
+                    Toast.makeText(QuizLevels.this, "Play to unlock levels.", Toast.LENGTH_SHORT).show();
+                }else {
+                    Intent intent = new Intent(QuizLevels.this, WizardingQuiz.class);
+                    intent.putExtra("levelNumber",String.valueOf(position+1));
+                    startActivity(intent);
+                    //Toast.makeText(MainActivity.this, wallpaperURL.get(position), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }

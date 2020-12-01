@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HarryPotterWorld">
-        <activity android:name=".Activities.QuizLevels"></activity>
+        <activity android:name=".Activities.SortingQuiz"></activity>
+        <activity android:name=".Activities.CharacterQuiz" />
+        <activity android:name=".Activities.PatronusQuiz" />
+        <activity android:name=".Activities.WandQuiz" />
+        <activity android:name=".Activities.WizardingQuiz" />
+        <activity android:name=".Activities.QuizLevels" />
         <activity android:name=".Activities.LoginSignup" />
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
