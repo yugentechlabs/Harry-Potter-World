@@ -112,9 +112,15 @@ public class WizardingQuiz extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 progressDialog.dismiss();
-                Level level=documentSnapshot.toObject(Level.class);
-                questionSets=new QuestionSets(level.getLevel());
-                showQuestion(questionSets.getQuesRandomized(quesNum));
+                try {
+                    Level level = documentSnapshot.toObject(Level.class);
+                    questionSets = new QuestionSets(level.getLevel());
+                    showQuestion(questionSets.getQuesRandomized(quesNum));
+                }
+                catch (Exception e){
+                    Toast.makeText(WizardingQuiz.this, "Unable to fetch level.", Toast.LENGTH_SHORT).show();
+                    WizardingQuiz.super.onBackPressed();
+                }
 
             }
         }).addOnFailureListener(new OnFailureListener() {

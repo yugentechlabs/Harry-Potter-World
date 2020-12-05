@@ -11,16 +11,21 @@ import android.widget.Toast;
 
 import com.yugentechlabs.harrypotterworld.Adapters.MainAdapter;
 import com.yugentechlabs.harrypotterworld.R;
+import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 
 public class QuizLevels extends AppCompatActivity {
 
-    int currentLevel=1;
+    int currentLevel;
     GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_levels);
+
+        LocalUserData l=new LocalUserData(this);
+        currentLevel=Integer.parseInt(l.getLevelNumber());
+
         updateUI();
 
     }
