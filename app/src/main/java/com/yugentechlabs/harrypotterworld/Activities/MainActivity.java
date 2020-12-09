@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         String s=l.getHouse();
 
 
-        if(s.equals("Griffindor")){
+        if(s.equals("Gryffindor")){
             nickname.setText(l.getNickname());
             banner.setImageResource(R.drawable.griffindor_banner);
             houseBanner.setImageResource(R.drawable.gryffindor);
@@ -146,5 +146,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finishAffinity();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        putBanner();
     }
 }
