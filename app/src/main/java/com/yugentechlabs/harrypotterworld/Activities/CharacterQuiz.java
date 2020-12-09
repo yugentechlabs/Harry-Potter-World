@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.Character;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
-import com.yugentechlabs.harrypotterworld.Utility.Patronus;
 
 public class CharacterQuiz extends AppCompatActivity {
 
@@ -91,8 +90,8 @@ public class CharacterQuiz extends AppCompatActivity {
             question=findViewById(R.id.question);
             one=findViewById(R.id.one);
             two=findViewById(R.id.two);
-            three=findViewById(R.id.three);
-            four=findViewById(R.id.four);
+            three=findViewById(R.id.three_image);
+            four=findViewById(R.id.four_image);
         }
 
     }

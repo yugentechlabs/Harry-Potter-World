@@ -88,14 +88,14 @@
         android:shadowDy="4"
         android:shadowRadius="5"
         android:text="Wizard"
-        app:layout_constraintBottom_toTopOf="@id/three"
+        app:layout_constraintBottom_toTopOf="@id/three_image"
         android:textColor="@color/white"
         android:textSize="30dp"
         tools:layout_editor_absoluteX="36dp"
         tools:layout_editor_absoluteY="253dp" />
 
     <TextView
-        android:id="@+id/three"
+        android:id="@+id/three_image"
         android:paddingStart="30dp"
         android:paddingVertical="20dp"
         android:layout_width="300dp"

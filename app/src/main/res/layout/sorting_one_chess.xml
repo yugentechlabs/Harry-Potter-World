@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:tag="RS"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toStartOf="@id/white"
             app:srcCompat="@drawable/chess_bg_black" />
@@ -28,6 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:tag="HG"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toEndOf="@id/black"
             app:srcCompat="@drawable/chess_bg_white" />

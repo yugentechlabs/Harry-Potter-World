@@ -4,17 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -46,8 +42,8 @@ public class WizardingQuiz extends AppCompatActivity {
         question=findViewById(R.id.question);
         one=findViewById(R.id.one);
         two=findViewById(R.id.two);
-        three=findViewById(R.id.three);
-        four=findViewById(R.id.four);
+        three=findViewById(R.id.three_image);
+        four=findViewById(R.id.four_image);
         questionNumber=findViewById(R.id.question_number);
 
         level.setText("Level "+levelNumber);

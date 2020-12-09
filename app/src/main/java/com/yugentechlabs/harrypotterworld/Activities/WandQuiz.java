@@ -141,7 +141,7 @@ public class WandQuiz extends AppCompatActivity {
         question=findViewById(R.id.question);
         one=findViewById(R.id.one);
         two=findViewById(R.id.two);
-        three=findViewById(R.id.three);
+        three=findViewById(R.id.three_image);
         wandText=findViewById(R.id.wand_text);
         submit=findViewById(R.id.submit);
     }

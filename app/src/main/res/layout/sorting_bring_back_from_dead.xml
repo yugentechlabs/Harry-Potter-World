@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/road_bg"
+    android:background="@drawable/dead_bg"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
@@ -56,11 +56,12 @@
 
                     <ImageView
                         android:id="@+id/one"
-                        android:layout_width="300dp"
+                        android:layout_width="230dp"
                         android:layout_height="300dp"
                         android:layout_marginStart="40dp"
                         android:layout_marginTop="4dp"
                         android:alpha="1"
+                        android:tag="G"
                         android:outlineAmbientShadowColor="@color/black"
                         android:outlineSpotShadowColor="@color/black"
                         android:scaleType="fitCenter"
@@ -83,7 +84,7 @@
 
                     <ImageView
                         android:id="@+id/two"
-                        android:layout_width="300dp"
+                        android:layout_width="230dp"
                         android:layout_height="300dp"
                         android:layout_marginLeft="25dp"
                         android:alpha="1"
@@ -91,6 +92,7 @@
                         android:outlineSpotShadowColor="@color/black"
                         android:shadowColor="#05070C"
                         android:shadowDx="4"
+                        android:tag="S"
                         android:shadowDy="4"
                         android:shadowRadius="5"
                         android:scaleType="fitCenter"
@@ -108,8 +110,8 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/three"
-                        android:layout_width="300dp"
+                        android:id="@+id/three_image"
+                        android:layout_width="230dp"
                         android:layout_height="300dp"
                         android:layout_marginLeft="25dp"
                         android:alpha="1"
@@ -118,6 +120,7 @@
                         android:shadowColor="#05070C"
                         android:shadowDx="4"
                         android:shadowDy="4"
+                        android:tag="H"
                         android:shadowRadius="5"
                         android:scaleType="fitCenter"
                         app:layout_constraintTop_toTopOf="parent"
@@ -133,11 +136,12 @@
                     android:layout_marginEnd="25dp">
 
                     <ImageView
-                        android:id="@+id/four"
-                        android:layout_width="300dp"
+                        android:id="@+id/four_image"
+                        android:layout_width="230dp"
                         android:layout_height="300dp"
                         android:layout_marginLeft="25dp"
                         android:alpha="1"
+                        android:tag="R"
                         android:outlineAmbientShadowColor="@color/black"
                         android:outlineSpotShadowColor="@color/black"
                         android:shadowColor="#05070C"

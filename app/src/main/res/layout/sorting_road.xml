@@ -61,6 +61,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="4dp"
                         android:alpha="1"
+                        android:tag="G"
                         android:outlineAmbientShadowColor="@color/black"
                         android:outlineSpotShadowColor="@color/black"
                         android:scaleType="fitCenter"
@@ -87,6 +88,7 @@
                         android:layout_height="300dp"
                         android:layout_marginLeft="25dp"
                         android:alpha="1"
+                        android:tag="R"
                         android:outlineAmbientShadowColor="@color/black"
                         android:outlineSpotShadowColor="@color/black"
                         android:shadowColor="#05070C"
@@ -108,9 +110,10 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/three"
+                        android:id="@+id/three_image"
                         android:layout_width="300dp"
                         android:layout_height="300dp"
+                        android:tag="H"
                         android:layout_marginLeft="25dp"
                         android:alpha="1"
                         android:outlineAmbientShadowColor="@color/black"
@@ -133,11 +136,12 @@
                     android:layout_marginEnd="25dp">
 
                     <ImageView
-                        android:id="@+id/four"
+                        android:id="@+id/four_image"
                         android:layout_width="300dp"
                         android:layout_height="300dp"
                         android:layout_marginLeft="25dp"
                         android:alpha="1"
+                        android:tag="S"
                         android:outlineAmbientShadowColor="@color/black"
                         android:outlineSpotShadowColor="@color/black"
                         android:shadowColor="#05070C"

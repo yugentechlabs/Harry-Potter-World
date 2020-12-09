@@ -78,14 +78,14 @@
         android:shadowDx="4"
         android:shadowDy="4"
         android:shadowRadius="5"
-        app:layout_constraintBottom_toTopOf="@id/three"
+        app:layout_constraintBottom_toTopOf="@id/three_image"
         android:textColor="@color/white"
         android:textSize="30dp"
         tools:layout_editor_absoluteX="36dp"
         tools:layout_editor_absoluteY="253dp" />
 
     <TextView
-        android:id="@+id/three"
+        android:id="@+id/three_image"
         android:paddingStart="30dp"
         android:paddingVertical="20dp"
         android:layout_width="300dp"
@@ -99,7 +99,7 @@
         android:shadowDx="4"
         android:shadowDy="4"
         android:shadowRadius="5"
-        app:layout_constraintBottom_toTopOf="@id/four"
+        app:layout_constraintBottom_toTopOf="@id/four_image"
         android:layout_marginStart="30dp"
         android:text="Wizard"
         android:textColor="@color/white"
@@ -109,14 +109,14 @@
 
     <TextView
         android:paddingEnd="30dp"
-        android:id="@+id/four"
+        android:id="@+id/four_image"
         android:paddingVertical="20dp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/answer_btn_right"
         android:fontFamily="@font/beneg___"
         android:gravity="right"
-        app:layout_constraintTop_toBottomOf="@id/three"
+        app:layout_constraintTop_toBottomOf="@id/three_image"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="30dp"

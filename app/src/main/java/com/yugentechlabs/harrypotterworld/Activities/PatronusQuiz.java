@@ -82,6 +82,6 @@ public class PatronusQuiz extends AppCompatActivity {
         question=findViewById(R.id.question);
         one=findViewById(R.id.one);
         two=findViewById(R.id.two);
-        three=findViewById(R.id.three);
+        three=findViewById(R.id.three_image);
     }
 }
