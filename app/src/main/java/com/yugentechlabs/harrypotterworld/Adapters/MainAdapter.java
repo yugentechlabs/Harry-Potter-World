@@ -14,23 +14,31 @@ import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.yugentechlabs.harrypotterworld.Models.Level;
 import com.yugentechlabs.harrypotterworld.R;
+import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainAdapter extends BaseAdapter {
     Context context;
     LayoutInflater inflater;
     ImageView imageView;
     TextView level;
+    ArrayList<Level> levels;
 
-    public MainAdapter(Context c) {
+    public MainAdapter(Context c, List<Level> arr) {
+        levels=new ArrayList<Level>();
+        for(int i=0;i<arr.size();i++){
+            levels.add(arr.get(i));
+        }
         context=c;
     }
 
     @Override
     public int getCount() {
-        return 30;
+        return levels.size();
     }
 
     @Override
@@ -52,9 +60,10 @@ public class MainAdapter extends BaseAdapter {
         imageView=convertView.findViewById(R.id.imageView);
         level=convertView.findViewById(R.id.level);
 
-        level.setText(String.valueOf(position+1));
+        level.setText(String.valueOf(levels.get(position).getLevelnum()));
 
-        if(position==0)
+        LocalUserData l=new LocalUserData(context);
+        if(position<Integer.parseInt(l.getLevelNumber()))
             imageView.setImageResource(R.drawable.levels);
         else
             imageView.setImageResource(R.drawable.levels_locked);

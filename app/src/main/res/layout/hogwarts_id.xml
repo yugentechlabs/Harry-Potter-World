@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:id="@+id/score"
+    android:background="@android:color/transparent">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/id_card_gryffindor"
+        app:layout_constraintStart_toStartOf="@id/score"
+        app:layout_constraintEnd_toEndOf="@id/score"
+        app:layout_constraintTop_toTopOf="@id/score"
+        app:layout_constraintBottom_toBottomOf="@id/score"/>
+
+
+    <LinearLayout
+        android:id="@+id/card"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+        android:background="@drawable/id_card_gryffindor"
+        app:layout_constraintBottom_toBottomOf="@id/image"
+        app:layout_constraintEnd_toEndOf="@id/image"
+        app:layout_constraintStart_toStartOf="@id/image"
+        app:layout_constraintTop_toTopOf="@id/image">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="sanak"
+            android:textColor="#CD000000"
+            android:textSize="35dp"
+            android:fontFamily="@font/oldlondon"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="CHARACTER: "
+            android:textColor="#CD000000"
+            android:textSize="8dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/adler" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_marginLeft="20dp">
+
+            <TextView
+                android:id="@+id/character"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/oldlondon"
+                android:gravity="left"
+                android:layout_marginEnd="130dp"
+                android:text="-"
+                android:textAllCaps="false"
+                android:textColor="#CD000000"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="PATRONUS: "
+            android:textColor="#CD000000"
+            android:textSize="8dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/adler" />
+
+
+        <TextView
+            android:id="@+id/patronus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/oldlondon"
+            android:gravity="left"
+            android:textColor="#CD000000"
+            android:text="-"
+            android:textAllCaps="false"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="WAND: "
+            android:textColor="#CD000000"
+            android:textSize="8dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/adler" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_marginLeft="20dp">
+
+        <TextView
+            android:id="@+id/wand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/oldlondon"
+            android:gravity="left"
+            android:layout_marginEnd="110dp"
+            android:text="-"
+            android:textAllCaps="false"
+            android:textColor="#CD000000"
+            android:textSize="18dp" />
+    </LinearLayout>
+        <!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="left"-->
+<!--            android:text="YEAR OF GRADUATION: "-->
+<!--            android:textColor="#CD000000"-->
+<!--            android:textSize="10dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:fontFamily="@font/adler" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:fontFamily="@font/oldlondon"-->
+<!--            android:gravity="left"-->
+<!--            android:textColor="#CD000000"-->
+<!--            android:text="2022"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textSize="25dp"-->
+<!--            android:layout_marginBottom="10dp"/>-->
+
+
+
+
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

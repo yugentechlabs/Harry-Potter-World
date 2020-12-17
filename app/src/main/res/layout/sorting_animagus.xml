@@ -69,7 +69,7 @@
                         android:scaleType="fitCenter"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/shark" />
+                        app:srcCompat="@drawable/s_shark" />
 
 
 
@@ -97,7 +97,7 @@
                         android:scaleType="fitCenter"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/cat" />
+                        app:srcCompat="@drawable/s_cat" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -124,7 +124,7 @@
                         android:scaleType="fitCenter"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:srcCompat="@drawable/horse" />
+                        app:srcCompat="@drawable/s_horse" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

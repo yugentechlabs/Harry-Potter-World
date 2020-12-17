@@ -14,14 +14,6 @@ public class User {
         this.email = email;
     }
 
-    public String getHeart() {
-        return heart;
-    }
-
-    public void setHeart(String heart) {
-        this.heart = heart;
-    }
-
     public String getNickname() {
         return nickname;
     }
@@ -36,14 +28,6 @@ public class User {
 
     public void setCharacter(String character) {
         this.character = character;
-    }
-
-    public String getCoins() {
-        return coins;
-    }
-
-    public void setCoins(String coins) {
-        this.coins = coins;
     }
 
     public String getHouse() {
@@ -78,17 +62,15 @@ public class User {
         this.levelnumber = levelnumber;
     }
 
-    public User(String email, String heart, String nickname, String character, String coins, String house, String patronus, String wand, String levelnumber) {
+    public User(String email, String nickname, String character, String house, String patronus, String wand, String levelnumber) {
         this.email = email;
-        this.heart = heart;
         this.nickname = nickname;
         this.character = character;
-        this.coins = coins;
         this.house = house;
         this.patronus = patronus;
         this.wand = wand;
         this.levelnumber = levelnumber;
     }
 
-    String email,heart,nickname,character,coins,house,patronus,wand,levelnumber;
+    String email,nickname,character,house,patronus,wand,levelnumber;
 }

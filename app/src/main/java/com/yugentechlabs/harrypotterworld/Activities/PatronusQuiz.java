@@ -16,7 +16,7 @@ public class PatronusQuiz extends AppCompatActivity {
     TextView question,one,two,three;
     Patronus patronus;
     int quesNum;
-
+    static String patronusStr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,10 +68,8 @@ public class PatronusQuiz extends AppCompatActivity {
         if(quesNum<5)
             showQues();
         else {
-            String s=patronus.getPatronus();
-            Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
-            LocalUserData l=new LocalUserData(this);
-            l.putPatronus(s);
+            PatronusCard patronusCard=new PatronusCard();
+            patronusCard.show(getSupportFragmentManager(),"Patronus");
 
            // super.onBackPressed();
         }

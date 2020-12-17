@@ -221,7 +221,7 @@
         android:inputType="textPassword"
         android:textColor="#CBF5FD"
         android:hint="Password"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:fontFamily="@font/tregular"
         android:textColorHint="#588495"
         app:layout_constraintEnd_toEndOf="parent"
@@ -231,14 +231,14 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="36dp"
-        android:layout_height="25dp"
+        android:layout_width="37dp"
+        android:layout_height="30dp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_view" />
+        app:layout_constraintEnd_toEndOf="@id/signupPassword"
+        app:layout_constraintTop_toTopOf="@id/signupPassword"
+        app:layout_constraintBottom_toBottomOf="@id/signupPassword"
+        app:srcCompat="@android:drawable/ic_menu_view"
+        app:tint="#79A5B6" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

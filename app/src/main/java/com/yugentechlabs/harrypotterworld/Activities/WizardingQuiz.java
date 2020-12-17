@@ -1,30 +1,26 @@
 package com.yugentechlabs.harrypotterworld.Activities;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.yugentechlabs.harrypotterworld.Models.Level;
 import com.yugentechlabs.harrypotterworld.R;
+import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 import com.yugentechlabs.harrypotterworld.Utility.QuestionSets;
 
 public class WizardingQuiz extends AppCompatActivity {
 
+    public static int currentLevel;
     String levelNumber;
     FirebaseFirestore db;
     QuestionSets questionSets;
     TextView level,question,one,two,three,four,questionNumber;
     int quesNum;
+    Level cLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +30,7 @@ public class WizardingQuiz extends AppCompatActivity {
         quesNum=0;
 
 
-        levelNumber=getIntent().getStringExtra("levelNumber");
+        cLevel= (Level) getIntent().getSerializableExtra("level");
 
         db = FirebaseFirestore.getInstance();
 
@@ -46,8 +42,12 @@ public class WizardingQuiz extends AppCompatActivity {
         four=findViewById(R.id.four_image);
         questionNumber=findViewById(R.id.question_number);
 
-        level.setText("Level "+levelNumber);
-        getLevelfromDB();
+        String l="Level "+cLevel.getLevelnum();
+        level.setText(l);
+
+        questionSets = new QuestionSets(cLevel.getLevel());
+        showQuestion(questionSets.getQuesRandomized(quesNum));
+       // getLevelfromDB();
 
         one.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,50 +84,57 @@ public class WizardingQuiz extends AppCompatActivity {
 
         //if answer wrong show dialog box
         //if end of question arrived show another dialog
-
+        currentLevel=cLevel.getLevelnum();
         if(questionSets.isCorrect(answerSelected) && quesNum<10){
             //answer box color change
 
             showQuestion(questionSets.getQuesRandomized(quesNum));
         }
-        else
+        else if(!questionSets.isCorrect(answerSelected))
         {
-            WizardingQuiz.super.onBackPressed();
+            WizardingQuizScoreCardFailed scoreCard=new WizardingQuizScoreCardFailed();
+            scoreCard.show(getSupportFragmentManager(),"Your Score");
+        }
+        else{
+            WizardingQuizScoreCardPassed scoreCard=new WizardingQuizScoreCardPassed();
+            scoreCard.show(getSupportFragmentManager(),"Your Score");
+
+
         }
     }
 
 
-    private void getLevelfromDB() {
-
-        final ProgressDialog progressDialog=new ProgressDialog(this);
-        progressDialog.setTitle("Please Wait...");
-        progressDialog.show();
-
-        DocumentReference docRef = db.collection("WizardingQuizLevels").document(levelNumber);
-        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-            @Override
-            public void onSuccess(DocumentSnapshot documentSnapshot) {
-                progressDialog.dismiss();
-                try {
-                    Level level = documentSnapshot.toObject(Level.class);
-                    questionSets = new QuestionSets(level.getLevel());
-                    showQuestion(questionSets.getQuesRandomized(quesNum));
-                }
-                catch (Exception e){
-                    Toast.makeText(WizardingQuiz.this, "Unable to fetch level.", Toast.LENGTH_SHORT).show();
-                    WizardingQuiz.super.onBackPressed();
-                }
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                WizardingQuiz.super.onBackPressed();
-                Toast.makeText(WizardingQuiz.this, "Unable to fetch level.", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
+//    private void getLevelfromDB() {
+//
+//        final ProgressDialog progressDialog=new ProgressDialog(this);
+//        progressDialog.setTitle("Please Wait...");
+//        progressDialog.show();
+//
+//        DocumentReference docRef = db.collection("WizardingQuizLevels").document(levelNumber);
+//        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//            @Override
+//            public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                progressDialog.dismiss();
+//                try {
+//                    Level level = documentSnapshot.toObject(Level.class);
+//                    questionSets = new QuestionSets(level.getLevel());
+//                    showQuestion(questionSets.getQuesRandomized(quesNum));
+//                }
+//                catch (Exception e){
+//                    Toast.makeText(WizardingQuiz.this, "Unable to fetch level.", Toast.LENGTH_SHORT).show();
+//                    WizardingQuiz.super.onBackPressed();
+//                }
+//
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                WizardingQuiz.super.onBackPressed();
+//                Toast.makeText(WizardingQuiz.this, "Unable to fetch level.", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//    }
 
 
 

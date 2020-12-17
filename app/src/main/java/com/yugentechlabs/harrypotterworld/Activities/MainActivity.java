@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView hpQuiz,wandQuiz,patronusQuiz,charQuiz,sortingQuiz;
     TextView nickname,of;
-    ImageView signout,banner,houseBanner;
+    ImageView settings,banner,houseBanner,wizardButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +28,23 @@ public class MainActivity extends AppCompatActivity {
 
         putBanner();
 
-        signout.setOnClickListener(new View.OnClickListener() {
+        settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MainActivity.this,LoginSignup.class));
+                Settings s=new Settings();
+                s.show(getSupportFragmentManager(),"Settings");
+
+
+            }
+        });
+
+        wizardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HogwartsId s=new HogwartsId();
+                s.show(getSupportFragmentManager(),"Hogwarts ID");
+
+
             }
         });
 
@@ -136,11 +148,12 @@ public class MainActivity extends AppCompatActivity {
         charQuiz=findViewById(R.id.charquizimage);
         sortingQuiz=findViewById(R.id.sortquizimage);
         wandQuiz=findViewById(R.id.wandquizimage);
-        signout=findViewById(R.id.settings_btn);
+        settings=findViewById(R.id.settings_btn);
         banner=findViewById(R.id.banner);
         houseBanner=findViewById(R.id.housebanner);
         nickname=findViewById(R.id.username);
         of=findViewById(R.id.of);
+        wizardButton=findViewById(R.id.wizard_btn);
     }
 
     @Override

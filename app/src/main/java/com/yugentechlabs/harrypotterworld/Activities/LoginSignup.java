@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -33,6 +34,7 @@ public class LoginSignup extends AppCompatActivity {
     TextView login,signup;
     EditText signupNickname, signupEmailAddress,signupPassword,loginEmailAddress, loginPassword;
     TextView signupButton,loginButton;
+    ProgressDialog progress;
 
     @Override
     public void onStart() {
@@ -98,7 +100,7 @@ public class LoginSignup extends AppCompatActivity {
         String password=loginPassword.getText().toString();
 
         if(email.equals("")){
-            Toast.makeText(LoginSignup.this, "Email required for signup!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginSignup.this, "Email required for login!", Toast.LENGTH_SHORT).show();
         }
         else if(password.length()<6){
             Toast.makeText(LoginSignup.this, "Password should have minimum 6 characters", Toast.LENGTH_SHORT).show();
@@ -115,6 +117,7 @@ public class LoginSignup extends AppCompatActivity {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 getUserDoc(email);
                             } else {
+                                progress.dismiss();
                                 // If sign in fails, display a message to the user.
                                 Log.w("TAG", "signInWithEmail:failure", task.getException());
                                 Toast.makeText(LoginSignup.this, "Authentication failed.",
@@ -138,12 +141,14 @@ public class LoginSignup extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 User u = documentSnapshot.toObject(User.class);
-                LocalUserData localUserData=new LocalUserData(LoginSignup.this,u.getEmail(),u.getHouse(),u.getWand(),u.getPatronus(),u.getCharacter(),u.getLevelnumber(),u.getNickname(),u.getHeart(),u.getCoins());
+                LocalUserData localUserData=new LocalUserData(LoginSignup.this,u.getEmail(),u.getHouse(),u.getWand(),u.getPatronus(),u.getCharacter(),u.getLevelnumber(),u.getNickname());
+                progress.dismiss();
                 startActivity(new Intent(LoginSignup.this,MainActivity.class));
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                progress.dismiss();
                 Toast.makeText(LoginSignup.this, "Please check your internet connection.",
                         Toast.LENGTH_SHORT).show();
             }
@@ -176,6 +181,7 @@ public class LoginSignup extends AppCompatActivity {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 makeUserDoc();
                             } else {
+                                progress.dismiss();
                                 // If sign in fails, display a message to the user.
                                 Log.w("TAG", "createUserWithEmail:failure", task.getException());
                                 Toast.makeText(LoginSignup.this, "Authentication failed.",
@@ -200,23 +206,26 @@ public class LoginSignup extends AppCompatActivity {
         String nickname=signupNickname.getText().toString();
 
 
-        User u=new User(email,"3",nickname,"","200","","","","1");
-        LocalUserData localUserData=new LocalUserData(LoginSignup.this,u.getEmail(),u.getHouse(),u.getWand(),u.getPatronus(),u.getCharacter(),u.getLevelnumber(),u.getNickname(),u.getHeart(),u.getCoins());
+        User u=new User(email,nickname,"","","","","1");
+        LocalUserData localUserData=new LocalUserData(LoginSignup.this,u.getEmail(),u.getHouse(),u.getWand(),u.getPatronus(),u.getCharacter(),u.getLevelnumber(),u.getNickname());
         Toast.makeText(LoginSignup.this, localUserData.getEmail()+localUserData.getLevelNumber(), Toast.LENGTH_SHORT).show();
         db.collection("User").document(email).set(u).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
                     Toast.makeText(LoginSignup.this, "Signup Success", Toast.LENGTH_SHORT).show();
+                    progress.dismiss();
                     startActivity(new Intent(LoginSignup.this,MainActivity.class));
                 }
                 else{
-                    Toast.makeText(LoginSignup.this, "Signup Success", Toast.LENGTH_SHORT).show();
+                    progress.dismiss();
+                    Toast.makeText(LoginSignup.this, "Signup Failed", Toast.LENGTH_SHORT).show();
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                progress.dismiss();
                 Toast.makeText(LoginSignup.this, "Please check your internet connection.", Toast.LENGTH_SHORT).show();
             }
         });
@@ -242,6 +251,11 @@ public class LoginSignup extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progress=new ProgressDialog(LoginSignup.this);
+                progress.setCancelable(false);
+                progress.show();
+                progress.setContentView(R.layout.loading_dialog);
+                progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 startSignup();
             }
         });
@@ -249,6 +263,11 @@ public class LoginSignup extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progress=new ProgressDialog(LoginSignup.this);
+                progress.setCancelable(false);
+                progress.show();
+                progress.setContentView(R.layout.loading_dialog);
+                progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 startLogin();
             }
         });
@@ -270,4 +289,8 @@ public class LoginSignup extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }

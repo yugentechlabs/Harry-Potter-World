@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@drawable/score_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" OOPS! You got it wrong!"
+            android:layout_marginTop="70dp"
+            android:textSize="35dp"
+            android:fontFamily="@font/hp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Help will always be given at Hogwarts to those who ask for it."
+            android:textSize="22dp"
+            android:layout_marginHorizontal="55dp"
+            android:fontFamily="@font/beneg___" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginHorizontal="55dp"
+            android:fontFamily="@font/beneg___"
+            android:gravity="center"
+            android:text="Help will always be given at Hogwarts to those who ask for it."
+            android:textSize="25dp"
+            app:srcCompat="@drawable/ad_icon" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Watch an Ad to continue"
+            android:textSize="25dp"
+            android:layout_marginHorizontal="55dp"
+            android:fontFamily="@font/beneg___"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="OR"
+            android:textSize="25dp"
+            android:layout_marginHorizontal="55dp"
+            android:fontFamily="@font/hp"
+            android:layout_marginBottom="5dp"/>
+
+
+        <TextView
+            android:id="@+id/continue_btn"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:layout_marginHorizontal="55dp"
+            android:textColor="@android:color/white"
+            android:text="Continue"
+            android:textSize="22dp"
+            android:fontFamily="@font/hp"
+            android:background="@drawable/next_level"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/main_menu"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:layout_marginHorizontal="55dp"
+            android:textColor="@android:color/white"
+            android:text="Main Menu"
+            android:textSize="22dp"
+            android:fontFamily="@font/hp"
+            android:background="@drawable/main_menu"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

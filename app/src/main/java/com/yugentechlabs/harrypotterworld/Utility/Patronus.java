@@ -1,15 +1,18 @@
 package com.yugentechlabs.harrypotterworld.Utility;
 
+import com.yugentechlabs.harrypotterworld.R;
+
 import java.util.Random;
 
 public class Patronus {
 
     String[] patronusQues,patronus;
-
+    int[] drawables;
 
     public Patronus(){
         patronusQues= new String[]{"Pick a season", "Summer", "Autumn", "Winter", "Pick a weapon", "Sword", "Spear", "Bow & Arrow", "What is your natural instinct?", "Escape", "Save", "Lead", "What is your biggest fear?", "Betrayal", "Failure", "Change", "Pick a place", "Forest", "Sea", "Mountains"};
-        patronus=new String[]{"Swan","Phoenix","Goat","Stag","Otter","Hare","Cat","Doe","Snowy Owl","Wolf","Fox","Horse","Blackbird","Snake","Dragon","Eagle","Lion","Ocra","Shark","Polar Bear"};
+        drawables= new int[]{R.drawable.stag, R.drawable.polarbear, R.drawable.lion, R.drawable.wolf, R.drawable.panther, R.drawable.elephant, R.drawable.otter, R.drawable.sparrow, R.drawable.fox, R.drawable.squirrel, R.drawable.goat, R.drawable.snake, R.drawable.horse, R.drawable.hare, R.drawable.cat, R.drawable.shark};
+        patronus= new String[]{"Stag", "Polar Bear", "Lion", "Wolf", "Panther", "Elephant", "Otter", "Sparrow", "Fox", "Squirrel", " Goat", "Snake", "Horse", "Hare", "Cat", "Shark"};
         }
 
 
@@ -23,11 +26,19 @@ public class Patronus {
         return ques;
         }
 
-        public String getPatronus()
+        public int getRandomPatronus()
         {
         Random random = new Random();
-        int position = random.nextInt(20);
-        return patronus[position];
+            return random.nextInt(16);
         }
+
+    public String getPatronusText(int i)
+    {
+        return patronus[i];
+    }
+    public int getPatronusImage(int i)
+    {
+        return drawables[i];
+    }
     }
 

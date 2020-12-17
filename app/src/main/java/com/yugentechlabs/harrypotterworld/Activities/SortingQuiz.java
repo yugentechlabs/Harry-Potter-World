@@ -21,6 +21,7 @@ public class SortingQuiz extends AppCompatActivity {
     TextView oneText,twoText,threeText,fourText,question;
     ConstraintLayout one,two,three,four;
     int griffindor, slytherin, hufflepuff, ravenclaw;
+    static String house="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -529,9 +530,8 @@ public class SortingQuiz extends AppCompatActivity {
     private void randomHouse(ArrayList<String> arr) {
         Random r=new Random();
         int i=r.nextInt(arr.size());
-        Toast.makeText(this, arr.get(i), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, ""+ravenclaw+" "+hufflepuff+" "+slytherin+" "+griffindor, Toast.LENGTH_SHORT).show();
-        LocalUserData l=new LocalUserData(this);
-        l.putHouse(arr.get(i));
+        house=arr.get(i);
+        HouseCard houseCard=new HouseCard();
+        houseCard.show(getSupportFragmentManager(),"House");
     }
 }

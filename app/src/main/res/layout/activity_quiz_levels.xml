@@ -32,88 +32,24 @@
         android:id="@+id/nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:text="Sanak Maitra"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:textColor="@color/white"
-        android:fontFamily="@font/alem"
+        android:fontFamily="@font/beneg___"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginRight="30dp"/>
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
-        android:layout_marginEnd="20dp"
-       app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-
-        <ImageView
-            android:id="@+id/coins_img"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="bottom"
-            android:layout_marginRight="10dp"
-            app:srcCompat="@drawable/subway_coin" />
-
-        <TextView
-            android:id="@+id/coins"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/tmedium"
-            android:text="200"
-            android:textColor="@color/white"
-            android:textSize="18dp"
-            android:layout_gravity="top"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
-
-            <ImageView
-                android:id="@+id/heart_one"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="bottom"
-                android:layout_marginRight="5dp"
-                app:srcCompat="@drawable/heart" />
-
-            <ImageView
-                android:id="@+id/heart_two"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="bottom"
-                android:layout_marginRight="5dp"
-                app:srcCompat="@drawable/heart" />
-
-            <ImageView
-                android:id="@+id/heart_three"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="bottom"
-                android:layout_marginRight="5dp"
-                app:srcCompat="@drawable/heart" />
-
-        </LinearLayout>
-    </LinearLayout>
 
     <TextView
         android:id="@+id/wizarding_quiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/hp"
         android:text="Wizarding Quiz"
         android:textColor="@color/white"
