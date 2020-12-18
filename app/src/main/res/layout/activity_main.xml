@@ -94,7 +94,7 @@
         <ImageView
             android:id="@+id/hpquizimage"
             android:layout_width="0dp"
-            android:layout_height="115dp"
+            android:layout_height="110dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
             android:alpha="1"
@@ -132,7 +132,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView7">
@@ -155,7 +155,7 @@
                         <ImageView
                             android:id="@+id/sortquizimage"
                             android:layout_width="300dp"
-                            android:layout_height="115dp"
+                            android:layout_height="110dp"
                             android:layout_marginLeft="25dp"
                             android:alpha="1"
                             android:scaleType="centerCrop"
@@ -191,7 +191,7 @@
                         <ImageView
                             android:id="@+id/charquizimage"
                             android:layout_width="300dp"
-                            android:layout_height="115dp"
+                            android:layout_height="110dp"
                             android:layout_marginLeft="25dp"
                             android:alpha="1"
                             android:scaleType="centerCrop"
@@ -227,7 +227,7 @@
                         <ImageView
                             android:id="@+id/patronusquizimage"
                             android:layout_width="300dp"
-                            android:layout_height="115dp"
+                            android:layout_height="110dp"
                             android:layout_marginLeft="25dp"
                             android:alpha="1"
                             android:scaleType="centerCrop"
@@ -264,7 +264,7 @@
                         <ImageView
                             android:id="@+id/wandquizimage"
                             android:layout_width="300dp"
-                            android:layout_height="115dp"
+                            android:layout_height="110dp"
                             android:layout_marginLeft="25dp"
                             android:alpha="1"
                             android:scaleType="centerCrop"

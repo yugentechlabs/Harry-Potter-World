@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +33,8 @@ public class QuizLevels extends AppCompatActivity {
     ArrayList<Level> levels;
     FirebaseFirestore db;
     ProgressDialog progress;
+    TextView nickname;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,16 @@ public class QuizLevels extends AppCompatActivity {
 
         LocalUserData l=new LocalUserData(this);
         currentLevel=Integer.parseInt(l.getLevelNumber());
+
+        nickname=findViewById(R.id.nickname);
+        nickname.setText(l.getNickname());
+        back=findViewById(R.id.back_btn);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QuizLevels.super.onBackPressed();
+            }
+        });
 
         levels=new ArrayList<Level>();
         db = FirebaseFirestore.getInstance();
@@ -58,7 +72,7 @@ public class QuizLevels extends AppCompatActivity {
         progress.setContentView(R.layout.loading_dialog);
         progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
-        db.collection("WizardingQuizLevels")
+        db.collection("WizardingQuizLevels").orderBy("levelnum")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override

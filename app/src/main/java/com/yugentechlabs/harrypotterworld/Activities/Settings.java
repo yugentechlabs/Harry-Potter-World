@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,11 +18,15 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.yugentechlabs.harrypotterworld.R;
+import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 
-public class Settings extends AppCompatDialogFragment {
+public class Settings extends AppCompatDialogFragment{
 
-    TextView signout, privacy, help,yugen;
+    TextView signout, privacy, help,yugen, changeNickname;
     View view;
+    ProgressBar p;
+    EditText name;
+
 
     @NonNull
     @Override
@@ -82,7 +88,14 @@ public class Settings extends AppCompatDialogFragment {
             }
         });
 
-
+        changeNickname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s=name.getText().toString();
+                LocalUserData l=new LocalUserData(getContext());
+                l.putNickname(s);
+            }
+        });
     }
 
 
@@ -91,6 +104,9 @@ public class Settings extends AppCompatDialogFragment {
         help=view.findViewById(R.id.help);
         privacy=view.findViewById(R.id.privacy);
         yugen=view.findViewById(R.id.yugen);
+        changeNickname=view.findViewById(R.id.change_nickname);
+        name=view.findViewById(R.id.name);
+        p=view.findViewById(R.id.progressBar);
     }
 
 

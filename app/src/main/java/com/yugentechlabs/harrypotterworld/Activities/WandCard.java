@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,20 +18,21 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 import com.yugentechlabs.harrypotterworld.Utility.Patronus;
+import com.yugentechlabs.harrypotterworld.Utility.Wand;
 
-public class PatronusCard extends AppCompatDialogFragment {
+public class WandCard extends AppCompatDialogFragment {
 
-    TextView mainMenu,patronusText;
-    ImageView patronusImage;
+    TextView mainMenu, wandText;
+    ImageView wandImage;
 
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity(), R.style.CustomAlertDialog);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.CustomAlertDialog);
 
-        LayoutInflater inflater=getActivity().getLayoutInflater();
-        View view=inflater.inflate(R.layout.patronus_card,null);
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        View view = inflater.inflate(R.layout.wand_card, null);
         builder.setCancelable(false);
 
         super.onCreate(savedInstanceState);
@@ -39,47 +41,43 @@ public class PatronusCard extends AppCompatDialogFragment {
         builder.setView(view);
 
 
-        mainMenu=view.findViewById(R.id.mainmenu);
-        patronusImage=view.findViewById(R.id.patronus_image);
-        patronusText=view.findViewById(R.id.patronus_name);
-
+        mainMenu = view.findViewById(R.id.mainmenu);
+        wandImage = view.findViewById(R.id.wand_image);
+         wandText= view.findViewById(R.id.wand_name);
 
 
         showPatronusImageText();
 
 
-
         mainMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),MainActivity.class));
+                startActivity(new Intent(getContext(), MainActivity.class));
             }
         });
-
-
 
 
         return builder.create();
     }
 
 
-
     private void showPatronusImageText() {
-        Patronus p=new Patronus();
-        int i=p.getRandomPatronus();
+        Wand wand=new Wand();
+        String s=wand.getWand();
+        Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
         LocalUserData l=new LocalUserData(getContext());
-        l.putPatronus(p.getPatronusText(i));
-       patronusImage.setImageResource(p.getPatronusImage(i));
-        patronusText.setText(p.getPatronusText(i));
+        l.putWand(s);
+        wandText.setText(s);
+        wandImage.setImageResource(wand.getWandImage());
     }
 
     @Override
     public void onDismiss(@NonNull DialogInterface dialog) {
-        startActivity(new Intent(getContext(),MainActivity.class));
+        startActivity(new Intent(getContext(), MainActivity.class));
     }
 
     @Override
     public void onCancel(@NonNull DialogInterface dialog) {
-        startActivity(new Intent(getContext(),MainActivity.class));
+        startActivity(new Intent(getContext(), MainActivity.class));
     }
 }

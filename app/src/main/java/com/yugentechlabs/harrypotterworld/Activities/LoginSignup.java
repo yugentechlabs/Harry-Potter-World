@@ -100,13 +100,19 @@ public class LoginSignup extends AppCompatActivity {
         String password=loginPassword.getText().toString();
 
         if(email.equals("")){
+
             Toast.makeText(LoginSignup.this, "Email required for login!", Toast.LENGTH_SHORT).show();
         }
         else if(password.length()<6){
+
             Toast.makeText(LoginSignup.this, "Password should have minimum 6 characters", Toast.LENGTH_SHORT).show();
         }
         else {
-
+            progress=new ProgressDialog(LoginSignup.this);
+            progress.setCancelable(false);
+            progress.show();
+            progress.setContentView(R.layout.loading_dialog);
+            progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -171,6 +177,11 @@ public class LoginSignup extends AppCompatActivity {
             Toast.makeText(LoginSignup.this, "Password should have minimum 6 characters", Toast.LENGTH_SHORT).show();
         }
         else {
+            progress=new ProgressDialog(LoginSignup.this);
+            progress.setCancelable(false);
+            progress.show();
+            progress.setContentView(R.layout.loading_dialog);
+            progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -208,7 +219,7 @@ public class LoginSignup extends AppCompatActivity {
 
         User u=new User(email,nickname,"","","","","1");
         LocalUserData localUserData=new LocalUserData(LoginSignup.this,u.getEmail(),u.getHouse(),u.getWand(),u.getPatronus(),u.getCharacter(),u.getLevelnumber(),u.getNickname());
-        Toast.makeText(LoginSignup.this, localUserData.getEmail()+localUserData.getLevelNumber(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(LoginSignup.this, localUserData.getEmail()+localUserData.getLevelNumber(), Toast.LENGTH_SHORT).show();
         db.collection("User").document(email).set(u).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -251,11 +262,6 @@ public class LoginSignup extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progress=new ProgressDialog(LoginSignup.this);
-                progress.setCancelable(false);
-                progress.show();
-                progress.setContentView(R.layout.loading_dialog);
-                progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 startSignup();
             }
         });
@@ -263,11 +269,6 @@ public class LoginSignup extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progress=new ProgressDialog(LoginSignup.this);
-                progress.setCancelable(false);
-                progress.show();
-                progress.setContentView(R.layout.loading_dialog);
-                progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 startLogin();
             }
         });

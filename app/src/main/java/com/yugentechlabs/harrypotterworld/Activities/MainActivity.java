@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.yugentechlabs.harrypotterworld.R;
@@ -41,9 +42,13 @@ public class MainActivity extends AppCompatActivity {
         wizardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HogwartsId s=new HogwartsId();
-                s.show(getSupportFragmentManager(),"Hogwarts ID");
-
+                LocalUserData l=new LocalUserData(MainActivity.this);
+                if(l.getHouse().equals("")){
+                    Toast.makeText(MainActivity.this, "Play the Sorting Quiz to unlock your Hogwarts ID card!", Toast.LENGTH_SHORT).show();
+                }else {
+                    HogwartsId s = new HogwartsId();
+                    s.show(getSupportFragmentManager(), "Hogwarts ID");
+                }
 
             }
         });
@@ -109,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         houseBanner.setVisibility(View.VISIBLE);
 
         LocalUserData l=new LocalUserData(this);
+        nickname.setText(l.getNickname());
         String s=l.getHouse();
 
 

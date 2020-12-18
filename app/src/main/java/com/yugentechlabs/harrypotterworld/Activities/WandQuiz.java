@@ -2,8 +2,13 @@ package com.yugentechlabs.harrypotterworld.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,11 +52,8 @@ public class WandQuiz extends AppCompatActivity {
                     showQuesOption();
                 }
                 else{
-                    Wand wand=new Wand();
-                    String s=wand.getWand();
-                    Toast.makeText(WandQuiz.this, s, Toast.LENGTH_SHORT).show();
-                    LocalUserData l=new LocalUserData(WandQuiz.this);
-                    l.putWand(s);
+                    WandCard wandCard=new WandCard();
+                    wandCard.show(getSupportFragmentManager(),"Wand");
                 }
             }
         });
@@ -64,11 +66,8 @@ public class WandQuiz extends AppCompatActivity {
                     showQuesOption();
                 }
                 else{
-                    Wand wand=new Wand();
-                    String s=wand.getWand();
-                    Toast.makeText(WandQuiz.this, s, Toast.LENGTH_SHORT).show();
-                    LocalUserData l=new LocalUserData(WandQuiz.this);
-                    l.putWand(s);
+                    WandCard wandCard=new WandCard();
+                    wandCard.show(getSupportFragmentManager(),"Wand");
                 }
             }
         });
@@ -81,11 +80,8 @@ public class WandQuiz extends AppCompatActivity {
                     showQuesOption();
                 }
                 else{
-                    Wand wand=new Wand();
-                    String s=wand.getWand();
-                    Toast.makeText(WandQuiz.this, s, Toast.LENGTH_SHORT).show();
-                    LocalUserData l=new LocalUserData(WandQuiz.this);
-                    l.putWand(s);
+                    WandCard wandCard=new WandCard();
+                    wandCard.show(getSupportFragmentManager(),"Wand");
                 }
             }
         });
@@ -97,6 +93,9 @@ public class WandQuiz extends AppCompatActivity {
         submit.setVisibility(View.INVISIBLE);
         wandText.setVisibility(View.INVISIBLE);
         if(quesNum==2){
+            InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+//Hide:
+            imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
             one.setVisibility(View.VISIBLE);
             two.setVisibility(View.VISIBLE);
             question.setText("Are you left-handed or right-handed?");
