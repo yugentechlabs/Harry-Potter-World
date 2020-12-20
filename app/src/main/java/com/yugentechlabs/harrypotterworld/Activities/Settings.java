@@ -1,13 +1,16 @@
 package com.yugentechlabs.harrypotterworld.Activities;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -26,7 +29,15 @@ public class Settings extends AppCompatDialogFragment{
     View view;
     ProgressBar p;
     EditText name;
+    private MyDialogCloseListener closeListener;
 
+    public interface MyDialogCloseListener {
+        void handleDialogClose(DialogInterface dialog);
+    }
+
+    public void DismissListener(MyDialogCloseListener closeListener) {
+        this.closeListener = closeListener;
+    }
 
     @NonNull
     @Override
@@ -91,9 +102,12 @@ public class Settings extends AppCompatDialogFragment{
         changeNickname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
                 String s=name.getText().toString();
                 LocalUserData l=new LocalUserData(getContext());
                 l.putNickname(s);
+                name.setText("");
             }
         });
     }
@@ -108,6 +122,13 @@ public class Settings extends AppCompatDialogFragment{
         name=view.findViewById(R.id.name);
         p=view.findViewById(R.id.progressBar);
     }
+    @Override
+    public void onDismiss(DialogInterface dialog) {
+        super.onDismiss(dialog);
+        if(closeListener != null) {
+            closeListener.handleDialogClose(null);
+        }
 
+    }
 
 }

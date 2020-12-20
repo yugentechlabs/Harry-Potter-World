@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,29 +13,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HarryPotterWorld">
-        <activity android:name=".Activities.SplashScreen"><intent-filter>
-            <category android:name="android.intent.category.LAUNCHER" /><action android:name="android.intent.action.MAIN" /></intent-filter>
+        <activity android:name=".Activities.SplashScreen" android:screenOrientation="portrait"><intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+            <action android:name="android.intent.action.MAIN" />
+
+        </intent-filter>
         </activity>
-        <activity android:name=".Activities.SortingQuiz" />
-        <activity android:name=".Activities.CharacterQuiz" />
-        <activity android:name=".Activities.PatronusQuiz" />
-        <activity android:name=".Activities.WandQuiz" />
-        <activity android:name=".Activities.WizardingQuiz" />
-        <activity android:name=".Activities.QuizLevels" />
-        <activity android:name=".Activities.LoginSignup">
+        <activity android:name=".Activities.SortingQuiz" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.CharacterQuiz" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.PatronusQuiz" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.WandQuiz" android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.WizardingQuiz" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.QuizLevels" android:screenOrientation="portrait" />
+        <activity android:name=".Activities.LoginSignup" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
 
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.MainActivity">
+        <activity android:name=".Activities.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <!-- -<category android:name="android.intent.category.LAUNCHER" /> -->
             </intent-filter>
         </activity>
+
+                <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+                <meta-data
+                    android:name="com.google.android.gms.ads.APPLICATION_ID"
+                    android:value="ca-app-pub-6981984644596212~7428934275"/>
+
     </application>
 
 </manifest>

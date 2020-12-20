@@ -6,6 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.rewarded.RewardedAd;
+import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.yugentechlabs.harrypotterworld.Models.Level;
 import com.yugentechlabs.harrypotterworld.R;
@@ -28,6 +34,8 @@ public class WizardingQuiz extends AppCompatActivity {
         setContentView(R.layout.activity_wizarding_quiz);
 
         quesNum=0;
+
+
 
 
         cLevel= (Level) getIntent().getSerializableExtra("level");
@@ -59,6 +67,7 @@ public class WizardingQuiz extends AppCompatActivity {
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 next(two.getText().toString());
             }
         });
@@ -139,12 +148,17 @@ public class WizardingQuiz extends AppCompatActivity {
 
 
     private void showQuestion(String[] ques) {
-        questionNumber.setText(("Question "+String.valueOf(quesNum+1)));
+        questionNumber.setText(("Question "+ (quesNum + 1)));
         question.setText(ques[0]);
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
         one.setText(ques[1]);
+        YoYo.with(Techniques.FadeInLeft).duration(700).repeat(0).playOn(one);
         two.setText(ques[2]);
+        YoYo.with(Techniques.FadeInRight).duration(700).repeat(0).playOn(two);
         three.setText(ques[3]);
+        YoYo.with(Techniques.FadeInLeft).duration(700).repeat(0).playOn(three);
         four.setText(ques[4]);
+        YoYo.with(Techniques.FadeInRight).duration(700).repeat(0).playOn(four);
         quesNum++;
     }
 

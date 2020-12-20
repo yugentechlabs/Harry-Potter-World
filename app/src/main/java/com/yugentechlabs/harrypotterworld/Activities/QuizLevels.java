@@ -118,4 +118,9 @@ public class QuizLevels extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(QuizLevels.this,MainActivity.class));
+    }
 }

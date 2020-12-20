@@ -70,14 +70,15 @@
 
     <TextView
         android:id="@+id/one"
-        android:paddingStart="30dp"
+        android:paddingHorizontal="38dp"
         android:paddingVertical="20dp"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/answer_btn_left"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:background="@drawable/answer_btn"
         android:fontFamily="@font/beneg___"
         android:shadowColor="#000000"
         android:shadowDx="4"
+        android:gravity="center_vertical"
         android:shadowDy="4"
         android:shadowRadius="5"
         app:layout_constraintTop_toBottomOf="@id/question"
@@ -91,16 +92,17 @@
         tools:layout_editor_absoluteY="253dp" />
 
     <TextView
-        android:paddingEnd="30dp"
+        android:paddingEnd="38dp"
         android:id="@+id/two"
         android:paddingVertical="20dp"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/answer_btn_right"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:background="@drawable/answer_btn"
         android:fontFamily="@font/beneg___"
         android:gravity="right"
         android:shadowColor="#000000"
         android:shadowDx="4"
+
         android:shadowDy="4"
         android:shadowRadius="5"
         app:layout_constraintTop_toBottomOf="@id/one"
@@ -109,17 +111,15 @@
         android:text="Wizard"
         app:layout_constraintBottom_toTopOf="@id/three_image"
         android:textColor="@color/white"
-        android:textSize="30dp"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="253dp" />
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/three_image"
-        android:paddingStart="30dp"
+        android:paddingStart="38dp"
         android:paddingVertical="20dp"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/answer_btn_left"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:background="@drawable/answer_btn"
         android:fontFamily="@font/beneg___"
         android:shadowColor="#000000"
         android:shadowDx="4"
@@ -131,20 +131,18 @@
         android:layout_marginStart="30dp"
         android:text="Wizard"
         android:textColor="@color/white"
-        android:textSize="30dp"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="253dp" />
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/four_image"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
         android:layout_marginEnd="30dp"
-        android:background="@drawable/answer_btn_right"
+        android:background="@drawable/answer_btn"
         android:fontFamily="@font/beneg___"
         android:gravity="right"
         android:paddingVertical="20dp"
-        android:paddingEnd="30dp"
+        android:paddingEnd="38dp"
         android:text="Wizard"
         android:shadowColor="#000000"
         android:shadowDx="4"

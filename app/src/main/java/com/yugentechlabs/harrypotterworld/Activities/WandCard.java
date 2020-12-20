@@ -33,7 +33,7 @@ public class WandCard extends AppCompatDialogFragment {
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.wand_card, null);
-        builder.setCancelable(false);
+       setCancelable(false);
 
         super.onCreate(savedInstanceState);
 
@@ -64,20 +64,9 @@ public class WandCard extends AppCompatDialogFragment {
     private void showPatronusImageText() {
         Wand wand=new Wand();
         String s=wand.getWand();
-        Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
         LocalUserData l=new LocalUserData(getContext());
         l.putWand(s);
         wandText.setText(s);
         wandImage.setImageResource(wand.getWandImage());
-    }
-
-    @Override
-    public void onDismiss(@NonNull DialogInterface dialog) {
-        startActivity(new Intent(getContext(), MainActivity.class));
-    }
-
-    @Override
-    public void onCancel(@NonNull DialogInterface dialog) {
-        startActivity(new Intent(getContext(), MainActivity.class));
     }
 }

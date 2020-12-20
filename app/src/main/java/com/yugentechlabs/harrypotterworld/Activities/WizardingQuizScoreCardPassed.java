@@ -30,7 +30,7 @@ import static android.content.Context.VIBRATOR_SERVICE;
 
 public class WizardingQuizScoreCardPassed extends AppCompatDialogFragment {
 
-    TextView mainMenu, nextLevel;
+    TextView mainMenu, nextLevel,points;
 
     @NonNull
     @Override
@@ -39,19 +39,24 @@ public class WizardingQuizScoreCardPassed extends AppCompatDialogFragment {
 
         LayoutInflater inflater=getActivity().getLayoutInflater();
         View view=inflater.inflate(R.layout.scorecard_passed,null);
-        builder.setCancelable(false);
+        setCancelable(false);
 
         super.onCreate(savedInstanceState);
-        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-                startActivity(new Intent(getContext(),QuizLevels.class));
-            }
-        });
 
 
         mainMenu=view.findViewById(R.id.mainmenu);
         nextLevel=view.findViewById(R.id.nextlevel);
+        points=view.findViewById(R.id.points);
+
+        LocalUserData l=new LocalUserData(getContext());
+        if(l.getHouse().equals("")){
+            points.setText("10 points awarded!");
+        }
+        else{
+            points.setText("10 points to "+l.getHouse()+" !");
+        }
+
+
 
 
         mainMenu.setOnClickListener(new View.OnClickListener() {
@@ -68,8 +73,6 @@ public class WizardingQuizScoreCardPassed extends AppCompatDialogFragment {
             }
         });
 
-
-        LocalUserData l=new LocalUserData(getContext());
         if(Integer.parseInt(l.getLevelNumber())==WizardingQuiz.currentLevel){
             int x=WizardingQuiz.currentLevel+1;
             l.putLevelNumber(String.valueOf(x));
@@ -77,5 +80,6 @@ public class WizardingQuizScoreCardPassed extends AppCompatDialogFragment {
         builder.setView(view);
         return builder.create();
     }
+
 
 }

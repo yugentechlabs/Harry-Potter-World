@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 import com.yugentechlabs.harrypotterworld.Utility.Patronus;
@@ -57,9 +59,13 @@ public class PatronusQuiz extends AppCompatActivity {
     private void showQues() {
         String[] ques=patronus.getQuestionByIndex(quesNum);
         question.setText(ques[0]);
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
         one.setText(ques[1]);
+        YoYo.with(Techniques.FadeInLeft).duration(700).repeat(0).playOn(one);
         two.setText(ques[2]);
+        YoYo.with(Techniques.FadeInRight).duration(700).repeat(0).playOn(two);
         three.setText(ques[3]);
+        YoYo.with(Techniques.FadeInLeft).duration(700).repeat(0).playOn(three);
         quesNum++;
 
     }

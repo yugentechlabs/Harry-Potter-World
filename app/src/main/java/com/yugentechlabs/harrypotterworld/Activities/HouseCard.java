@@ -36,15 +36,9 @@ public class HouseCard extends AppCompatDialogFragment {
 
         LayoutInflater inflater=getActivity().getLayoutInflater();
         View view=inflater.inflate(R.layout.sorting_end_card,null);
-        builder.setCancelable(false);
+       setCancelable(false);
 
         super.onCreate(savedInstanceState);
-        builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-                startActivity(new Intent(getContext(),QuizLevels.class));
-            }
-        });
 
         builder.setView(view);
 
@@ -96,15 +90,5 @@ public class HouseCard extends AppCompatDialogFragment {
             houseText.setText(sly);
             houseImage.setImageResource(R.drawable.slytherin);
         }
-    }
-
-    @Override
-    public void onDismiss(@NonNull DialogInterface dialog) {
-        startActivity(new Intent(getContext(),MainActivity.class));
-    }
-
-    @Override
-    public void onCancel(@NonNull DialogInterface dialog) {
-        startActivity(new Intent(getContext(),MainActivity.class));
     }
 }

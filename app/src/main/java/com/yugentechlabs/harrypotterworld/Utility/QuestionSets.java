@@ -44,10 +44,7 @@ public class QuestionSets {
 
 
     public boolean isCorrect(String s){
-        if(s.equals(correct)){
-            return true;
-        }
-        return false;
+        return s.equals(correct);
     }
 
 

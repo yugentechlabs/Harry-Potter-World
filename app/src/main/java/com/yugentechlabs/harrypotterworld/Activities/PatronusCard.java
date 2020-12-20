@@ -31,7 +31,7 @@ public class PatronusCard extends AppCompatDialogFragment {
 
         LayoutInflater inflater=getActivity().getLayoutInflater();
         View view=inflater.inflate(R.layout.patronus_card,null);
-        builder.setCancelable(false);
+       setCancelable(false);
 
         super.onCreate(savedInstanceState);
 
@@ -71,15 +71,5 @@ public class PatronusCard extends AppCompatDialogFragment {
         l.putPatronus(p.getPatronusText(i));
        patronusImage.setImageResource(p.getPatronusImage(i));
         patronusText.setText(p.getPatronusText(i));
-    }
-
-    @Override
-    public void onDismiss(@NonNull DialogInterface dialog) {
-        startActivity(new Intent(getContext(),MainActivity.class));
-    }
-
-    @Override
-    public void onCancel(@NonNull DialogInterface dialog) {
-        startActivity(new Intent(getContext(),MainActivity.class));
     }
 }

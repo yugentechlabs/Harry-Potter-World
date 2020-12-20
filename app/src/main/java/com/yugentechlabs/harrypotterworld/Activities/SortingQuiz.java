@@ -6,9 +6,12 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 
@@ -20,6 +23,7 @@ public class SortingQuiz extends AppCompatActivity {
     ImageView black,white,oneImage,twoImage,threeImage,fourImage;
     TextView oneText,twoText,threeText,fourText,question;
     ConstraintLayout one,two,three,four;
+    LinearLayout options;
     int griffindor, slytherin, hufflepuff, ravenclaw;
     static String house="";
 
@@ -78,6 +82,10 @@ public class SortingQuiz extends AppCompatActivity {
         twoImage=findViewById(R.id.two);
         threeImage=findViewById(R.id.three);
         fourImage=findViewById(R.id.four);
+        question=findViewById(R.id.question);
+        options=findViewById(R.id.options);
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
+        YoYo.with(Techniques.BounceInLeft).duration(700).repeat(0).playOn(options);
 
         oneImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +130,11 @@ public class SortingQuiz extends AppCompatActivity {
         three=findViewById(R.id.three);
         four=findViewById(R.id.four);
 
+        question=findViewById(R.id.question);
+        options=findViewById(R.id.options);
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
+        YoYo.with(Techniques.BounceInLeft).duration(700).repeat(0).playOn(options);
+
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -164,6 +177,11 @@ public class SortingQuiz extends AppCompatActivity {
         twoImage=findViewById(R.id.two);
         threeImage=findViewById(R.id.three);
         fourImage=findViewById(R.id.four);
+
+        question=findViewById(R.id.question);
+        options=findViewById(R.id.options);
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
+        YoYo.with(Techniques.BounceInLeft).duration(700).repeat(0).playOn(options);
 
         oneImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -209,6 +227,11 @@ public class SortingQuiz extends AppCompatActivity {
         threeImage=findViewById(R.id.three);
         fourImage=findViewById(R.id.four);
 
+        question=findViewById(R.id.question);
+        options=findViewById(R.id.options);
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
+        YoYo.with(Techniques.BounceInLeft).duration(700).repeat(0).playOn(options);
+
         oneImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -252,6 +275,14 @@ public class SortingQuiz extends AppCompatActivity {
         threeText=findViewById(R.id.three);
         fourText=findViewById(R.id.four);
 
+        question=findViewById(R.id.question);
+
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
+        YoYo.with(Techniques.BounceInLeft).duration(700).repeat(0).playOn(oneText);
+        YoYo.with(Techniques.BounceInRight).duration(700).repeat(0).playOn(twoText);
+        YoYo.with(Techniques.BounceInLeft).duration(700).repeat(0).playOn(threeText);
+        YoYo.with(Techniques.BounceInRight).duration(700).repeat(0).playOn(fourText);
+
         oneText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -294,6 +325,10 @@ public class SortingQuiz extends AppCompatActivity {
         twoImage=findViewById(R.id.two);
         threeImage=findViewById(R.id.three);
         fourImage=findViewById(R.id.four);
+        question=findViewById(R.id.question);
+        options=findViewById(R.id.options);
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
+        YoYo.with(Techniques.BounceInLeft).duration(700).repeat(0).playOn(options);
 
         oneImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -337,6 +372,10 @@ public class SortingQuiz extends AppCompatActivity {
         twoImage=findViewById(R.id.two);
         threeImage=findViewById(R.id.three);
         fourImage=findViewById(R.id.four);
+        question=findViewById(R.id.question);
+        options=findViewById(R.id.options);
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
+        YoYo.with(Techniques.BounceInLeft).duration(700).repeat(0).playOn(options);
 
         oneImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -380,6 +419,10 @@ public class SortingQuiz extends AppCompatActivity {
         twoImage=findViewById(R.id.two);
         threeImage=findViewById(R.id.three);
         fourImage=findViewById(R.id.four);
+        question=findViewById(R.id.question);
+        options=findViewById(R.id.options);
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
+        YoYo.with(Techniques.BounceInLeft).duration(700).repeat(0).playOn(options);
 
         oneImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -424,6 +467,14 @@ public class SortingQuiz extends AppCompatActivity {
         threeText=findViewById(R.id.three);
         fourText=findViewById(R.id.four);
         question=findViewById(R.id.question);
+
+        question=findViewById(R.id.question);
+
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
+        YoYo.with(Techniques.BounceInLeft).duration(700).repeat(0).playOn(oneText);
+        YoYo.with(Techniques.BounceInRight).duration(700).repeat(0).playOn(twoText);
+        YoYo.with(Techniques.BounceInLeft).duration(700).repeat(0).playOn(threeText);
+        YoYo.with(Techniques.BounceInRight).duration(700).repeat(0).playOn(fourText);
 
         question.setText("You come face to face with a death eater, what would you do?");
         oneText.setText("Use one of the unforgivable curses");

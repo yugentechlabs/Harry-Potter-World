@@ -4,7 +4,12 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -17,6 +22,9 @@ import androidx.core.content.ContextCompat;
 
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 public class HogwartsId extends AppCompatDialogFragment {
 
@@ -44,6 +52,7 @@ public class HogwartsId extends AppCompatDialogFragment {
         card=view.findViewById(R.id.card);
 
         change();
+
 
 
         return builder.create();
@@ -76,6 +85,7 @@ public class HogwartsId extends AppCompatDialogFragment {
         }
 
     }
+
 
     private void changeHouse(String house) {
         if(house.equals("Gryffindor"))

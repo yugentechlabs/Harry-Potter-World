@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 import com.yugentechlabs.harrypotterworld.Utility.Wand;
@@ -31,6 +33,10 @@ public class WandQuiz extends AppCompatActivity {
         quesNum=0;
         getViews();
 
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(wandText);
+        YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(submit);
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +45,9 @@ public class WandQuiz extends AppCompatActivity {
                     showQuesOption();
                 }
                 else{
+                    YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
+                    YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(wandText);
+                    YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(submit);
                     showQues();
                 }
             }
@@ -95,25 +104,37 @@ public class WandQuiz extends AppCompatActivity {
         if(quesNum==2){
             InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
 //Hide:
+
             imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
             one.setVisibility(View.VISIBLE);
             two.setVisibility(View.VISIBLE);
             question.setText("Are you left-handed or right-handed?");
+            YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
             one.setText("Left-handed");
+            YoYo.with(Techniques.FadeInLeft).duration(700).repeat(0).playOn(one);
             two.setText("Right-handed");
+            YoYo.with(Techniques.FadeInRight).duration(700).repeat(0).playOn(two);
         }
         else if(quesNum==3){
             three.setVisibility(View.VISIBLE);
             question.setText("What would your blood status be?");
+            YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
             one.setText("Muggle");
+            YoYo.with(Techniques.FadeInLeft).duration(700).repeat(0).playOn(one);
             two.setText("Hald blood");
+            YoYo.with(Techniques.FadeInRight).duration(700).repeat(0).playOn(two);
             three.setText("Full blood");
+            YoYo.with(Techniques.FadeInLeft).duration(700).repeat(0).playOn(three);
         }
         else {
             question.setText("Who do you think is the greatest wizard?");
+            YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
             one.setText("Albus Dumbledore");
+            YoYo.with(Techniques.FadeInLeft).duration(700).repeat(0).playOn(one);
             two.setText("Gellert Grindelwald");
+            YoYo.with(Techniques.FadeInRight).duration(700).repeat(0).playOn(two);
             three.setText("Lord Voldemort");
+            YoYo.with(Techniques.FadeInLeft).duration(700).repeat(0).playOn(three);
         }
     }
 
@@ -128,6 +149,7 @@ public class WandQuiz extends AppCompatActivity {
     private void showQues() {
         if(quesNum==0) {
             question.setText("What is your height?");
+
         }
         else{
             wandText.setText("");

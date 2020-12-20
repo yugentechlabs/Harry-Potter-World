@@ -3,6 +3,7 @@ package com.yugentechlabs.harrypotterworld.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 
@@ -29,12 +29,25 @@ public class MainActivity extends AppCompatActivity {
 
         putBanner();
 
+        Settings.MyDialogCloseListener closeListener = new Settings.MyDialogCloseListener() {
+            @Override
+            public void handleDialogClose(DialogInterface dialog) {
+                LocalUserData l=new LocalUserData(MainActivity.this);
+                nickname.setText(l.getNickname());
+            }
+        };
+
+
+
+
+
+
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Settings s=new Settings();
+                s.DismissListener(closeListener);
                 s.show(getSupportFragmentManager(),"Settings");
-
 
             }
         });

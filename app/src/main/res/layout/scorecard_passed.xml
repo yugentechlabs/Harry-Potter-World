@@ -41,10 +41,11 @@
             android:layout_marginBottom="25dp"/>
 
         <TextView
+            android:id="@+id/points"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="10 points to Gryffindor !"
+            android:text="10 points to  !"
             android:textSize="35dp"
             android:fontFamily="@font/beneg___"
             android:layout_marginBottom="35dp"/>
