@@ -14,16 +14,8 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.HarryPotterWorld.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
     <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
-    <style name="Theme.HarryPotterWorld.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.HarryPotterWorld.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

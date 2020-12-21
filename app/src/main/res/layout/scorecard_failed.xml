@@ -78,7 +78,7 @@
             android:gravity="center"
             android:layout_marginHorizontal="55dp"
             android:textColor="@android:color/white"
-            android:text="Continue"
+            android:text="Play Again"
             android:textSize="22dp"
             android:fontFamily="@font/hp"
             android:background="@drawable/next_level"

@@ -3,14 +3,18 @@ package com.yugentechlabs.harrypotterworld.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         getViews();
 
         putBanner();
+        showRateApp();
 
         Settings.MyDialogCloseListener closeListener = new Settings.MyDialogCloseListener() {
             @Override
@@ -36,10 +41,6 @@ public class MainActivity extends AppCompatActivity {
                 nickname.setText(l.getNickname());
             }
         };
-
-
-
-
 
 
         settings.setOnClickListener(new View.OnClickListener() {
@@ -89,14 +90,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TextView t=findViewById(R.id.gamename);
-        t.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,LoginSignup.class));
-            }
-        });
-
 
         wandQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,8 +105,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,PatronusQuiz.class));
             }
         });
+
+        banner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalUserData l=new LocalUserData(MainActivity.this);
+                if(!l.getHouse().equals("")){
+                    HogwartsId s = new HogwartsId();
+                    s.show(getSupportFragmentManager(), "Hogwarts ID");
+                }
+
+            }
+        });
     }
 
+    private void showRateApp() {
+        if(getIntent().getIntExtra("rate_app",0)==1){
+            RateApp s=new RateApp();
+            s.show(getSupportFragmentManager(),"RateApp");
+        }
+    }
 
 
     private void putBanner() {
@@ -177,7 +188,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        finishAffinity();
+
+      ExitApp e=new ExitApp();
+      e.show(getSupportFragmentManager(),"Exit");
+
     }
 
     @Override

@@ -1,32 +1,17 @@
 package com.yugentechlabs.harrypotterworld.Activities;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
-
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
-
-import static android.content.Context.VIBRATOR_SERVICE;
 
 public class WizardingQuizScoreCardPassed extends AppCompatDialogFragment {
 
@@ -69,7 +54,9 @@ public class WizardingQuizScoreCardPassed extends AppCompatDialogFragment {
         nextLevel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getContext(),QuizLevels.class));
+                Intent intent = new Intent(getContext(), QuizLevels.class);
+                intent.putExtra("levelnum",(WizardingQuiz.currentLevel+1));
+                startActivity(intent);
             }
         });
 

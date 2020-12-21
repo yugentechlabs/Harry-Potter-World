@@ -2,23 +2,27 @@ package com.yugentechlabs.harrypotterworld.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.Character;
-import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
+
+import static java.lang.Thread.sleep;
+
 
 public class CharacterQuiz extends AppCompatActivity {
 
         TextView question,one,two,three,four;
         Character character;
         int quesNum;
-
+    ProgressDialog progress;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -29,6 +33,8 @@ public class CharacterQuiz extends AppCompatActivity {
 
 
             character=new Character();
+
+            showLoading();
 
 
 
@@ -61,6 +67,26 @@ public class CharacterQuiz extends AppCompatActivity {
             });
 
             showQues();
+        }
+
+        void showLoading(){
+            progress=new ProgressDialog(this);
+            progress.setCancelable(false);
+            progress.show();
+            progress.setContentView(R.layout.loading_dialog);
+            progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    try {
+                        sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    progress.dismiss();
+                }
+            }).start();
         }
 
         private void showQues() {
@@ -104,4 +130,9 @@ public class CharacterQuiz extends AppCompatActivity {
 
         }
 
+    @Override
+    public void onBackPressed() {
+        ExitQuiz e=new ExitQuiz();
+        e.show(getSupportFragmentManager(),"Exit");
     }
+}

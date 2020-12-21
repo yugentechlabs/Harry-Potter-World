@@ -1,7 +1,6 @@
 package com.yugentechlabs.harrypotterworld.Utility;
 
 import com.yugentechlabs.harrypotterworld.R;
-
 import java.util.Random;
 
 public class Wand {

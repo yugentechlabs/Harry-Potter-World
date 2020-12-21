@@ -2,26 +2,22 @@ package com.yugentechlabs.harrypotterworld.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.rewarded.RewardedAd;
-import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.yugentechlabs.harrypotterworld.Models.Level;
 import com.yugentechlabs.harrypotterworld.R;
-import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 import com.yugentechlabs.harrypotterworld.Utility.QuestionSets;
 
-public class WizardingQuiz extends AppCompatActivity {
+import static java.lang.Thread.sleep;
 
+public class WizardingQuiz extends AppCompatActivity {
+    ProgressDialog progress;
     public static int currentLevel;
-    String levelNumber;
     FirebaseFirestore db;
     QuestionSets questionSets;
     TextView level,question,one,two,three,four,questionNumber;
@@ -36,7 +32,7 @@ public class WizardingQuiz extends AppCompatActivity {
         quesNum=0;
 
 
-
+        showLoading();
 
         cLevel= (Level) getIntent().getSerializableExtra("level");
 
@@ -96,7 +92,6 @@ public class WizardingQuiz extends AppCompatActivity {
         currentLevel=cLevel.getLevelnum();
         if(questionSets.isCorrect(answerSelected) && quesNum<10){
             //answer box color change
-
             showQuestion(questionSets.getQuesRandomized(quesNum));
         }
         else if(!questionSets.isCorrect(answerSelected))
@@ -162,4 +157,29 @@ public class WizardingQuiz extends AppCompatActivity {
         quesNum++;
     }
 
+    void showLoading(){
+        progress=new ProgressDialog(this);
+        progress.setCancelable(false);
+        progress.show();
+        progress.setContentView(R.layout.loading_dialog);
+        progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    sleep(700);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                progress.dismiss();
+            }
+        }).start();
+    }
+
+    @Override
+    public void onBackPressed() {
+        ExitWizardingQuiz e=new ExitWizardingQuiz();
+        e.show(getSupportFragmentManager(),"Exit");
+    }
 }

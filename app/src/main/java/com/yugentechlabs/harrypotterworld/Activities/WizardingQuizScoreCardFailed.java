@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,11 +12,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
-
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.LoadAdError;
@@ -65,8 +62,11 @@ public class WizardingQuizScoreCardFailed extends AppCompatDialogFragment {
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(getContext(),QuizLevels.class));
-                getActivity().onBackPressed();
+                Intent intent = new Intent(getContext(), QuizLevels.class);
+                intent.putExtra("levelnum",WizardingQuiz.currentLevel);
+                startActivity(intent);
+
+                //getActivity().onBackPressed();
             }
         });
         final int[] errorCode = new int[1];

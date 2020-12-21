@@ -1,26 +1,21 @@
 package com.yugentechlabs.harrypotterworld.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
-import android.content.Context;
+import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.yugentechlabs.harrypotterworld.R;
-import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
-import com.yugentechlabs.harrypotterworld.Utility.Wand;
+
+import static java.lang.Thread.sleep;
 
 public class WandQuiz extends AppCompatActivity {
-
+    ProgressDialog progress;
     int quesNum;
     ImageView submit;
     TextView question,one,two,three,wandText;
@@ -32,6 +27,8 @@ public class WandQuiz extends AppCompatActivity {
 
         quesNum=0;
         getViews();
+
+        showLoading();
 
         YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
         YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(wandText);
@@ -165,5 +162,32 @@ public class WandQuiz extends AppCompatActivity {
         three=findViewById(R.id.three_image);
         wandText=findViewById(R.id.wand_text);
         submit=findViewById(R.id.submit);
+    }
+
+
+    void showLoading(){
+        progress=new ProgressDialog(this);
+        progress.setCancelable(false);
+        progress.show();
+        progress.setContentView(R.layout.loading_dialog);
+        progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                progress.dismiss();
+            }
+        }).start();
+    }
+
+    @Override
+    public void onBackPressed() {
+        ExitQuiz e=new ExitQuiz();
+        e.show(getSupportFragmentManager(),"Exit");
     }
 }

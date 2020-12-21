@@ -2,18 +2,15 @@ package com.yugentechlabs.harrypotterworld.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -23,7 +20,6 @@ import com.yugentechlabs.harrypotterworld.Adapters.MainAdapter;
 import com.yugentechlabs.harrypotterworld.Models.Level;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
-
 import java.util.ArrayList;
 
 public class QuizLevels extends AppCompatActivity {
@@ -84,12 +80,21 @@ public class QuizLevels extends AppCompatActivity {
                                 levels.add(level);
                             }
                             progress.dismiss();
+                            int cl=getIntent().getIntExtra("levelnum",0);
+                            if(cl!=0){
+                                Intent intent = new Intent(QuizLevels.this, WizardingQuiz.class);
+                                intent.putExtra("level", levels.get((cl-1)));
+                                startActivity(intent);
+                            }
                             updateUI();
                         } else {
                             //Log.d(TAG, "Error getting documents: ", task.getException());
                         }
                     }
                 });
+
+
+
 
     }
 
@@ -98,6 +103,8 @@ public class QuizLevels extends AppCompatActivity {
         gridView=findViewById(R.id.grid_view);
         MainAdapter adapter= new MainAdapter(this,levels);
         gridView.setAdapter(adapter);
+
+
 
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -117,6 +124,12 @@ public class QuizLevels extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
     }
 
     @Override

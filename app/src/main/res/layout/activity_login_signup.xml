@@ -95,6 +95,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <EditText
         android:id="@+id/loginEmailAddress"
         android:layout_width="280dp"
@@ -131,6 +132,20 @@
         app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginEmailAddress"/>
+
+    <ImageView
+        android:id="@+id/password_toggle_login"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/loginPassword"
+        app:layout_constraintEnd_toEndOf="@id/loginPassword"
+        app:layout_constraintTop_toTopOf="@id/loginPassword"
+        app:srcCompat="@drawable/eye_decrypted" />
+
+
+
+
 
 
     <TextView
@@ -237,15 +252,15 @@
         app:layout_constraintTop_toBottomOf="@id/signupEmailAddress"/>
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="37dp"
-        android:layout_height="30dp"
-        android:visibility="gone"
+        android:id="@+id/password_toggle_sign_up"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/signupPassword"
         app:layout_constraintEnd_toEndOf="@id/signupPassword"
         app:layout_constraintTop_toTopOf="@id/signupPassword"
-        app:layout_constraintBottom_toBottomOf="@id/signupPassword"
-        app:srcCompat="@android:drawable/ic_menu_view"
-        app:tint="#79A5B6" />
+        app:srcCompat="@drawable/eye_decrypted" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

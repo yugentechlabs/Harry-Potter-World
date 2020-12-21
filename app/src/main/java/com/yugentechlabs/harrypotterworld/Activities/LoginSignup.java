@@ -3,17 +3,21 @@ package com.yugentechlabs.harrypotterworld.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -33,8 +37,12 @@ public class LoginSignup extends AppCompatActivity {
     FirebaseFirestore db;
     TextView login,signup;
     EditText signupNickname, signupEmailAddress,signupPassword,loginEmailAddress, loginPassword;
-    TextView signupButton,loginButton;
+    TextView signupButton,loginButton, forgotPassword;
     ProgressDialog progress;
+    ImageView passwordToggleLogin, passwordToggleSignUp;
+
+
+    private SignInButton gSignInButton;
 
     @Override
     public void onStart() {
@@ -68,11 +76,15 @@ public class LoginSignup extends AppCompatActivity {
         loginEmailAddress.setVisibility(View.INVISIBLE);
         loginPassword.setVisibility(View.INVISIBLE);
         loginButton.setVisibility(View.INVISIBLE);
+        forgotPassword.setVisibility(View.INVISIBLE);
+        passwordToggleLogin.setVisibility(View.INVISIBLE);
 
         signupEmailAddress.setVisibility(View.VISIBLE);
         signupPassword.setVisibility(View.VISIBLE);
         signupNickname.setVisibility(View.VISIBLE);
         signupButton.setVisibility(View.VISIBLE);
+        passwordToggleSignUp.setVisibility(View.VISIBLE);
+
     }
 
 
@@ -84,11 +96,14 @@ public class LoginSignup extends AppCompatActivity {
         loginEmailAddress.setVisibility(View.VISIBLE);
         loginPassword.setVisibility(View.VISIBLE);
         loginButton.setVisibility(View.VISIBLE);
+        forgotPassword.setVisibility(View.VISIBLE);
+        passwordToggleLogin.setVisibility(View.VISIBLE);
 
         signupEmailAddress.setVisibility(View.INVISIBLE);
         signupPassword.setVisibility(View.INVISIBLE);
         signupNickname.setVisibility(View.INVISIBLE);
         signupButton.setVisibility(View.INVISIBLE);
+        passwordToggleSignUp.setVisibility(View.INVISIBLE);
      }
 
 
@@ -149,7 +164,9 @@ public class LoginSignup extends AppCompatActivity {
                 User u = documentSnapshot.toObject(User.class);
                 LocalUserData localUserData=new LocalUserData(LoginSignup.this,u.getEmail(),u.getHouse(),u.getWand(),u.getPatronus(),u.getCharacter(),u.getLevelnumber(),u.getNickname());
                 progress.dismiss();
-                startActivity(new Intent(LoginSignup.this,MainActivity.class));
+                Intent intent = new Intent(LoginSignup.this, MainActivity.class);
+                intent.putExtra("rate_app",1);
+                startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -226,7 +243,9 @@ public class LoginSignup extends AppCompatActivity {
                 if (task.isSuccessful()){
                     Toast.makeText(LoginSignup.this, "Signup Success", Toast.LENGTH_SHORT).show();
                     progress.dismiss();
-                    startActivity(new Intent(LoginSignup.this,MainActivity.class));
+                    Intent intent = new Intent(LoginSignup.this, MainActivity.class);
+                    intent.putExtra("rate_app",1);
+                    startActivity(intent);
                 }
                 else{
                     progress.dismiss();
@@ -258,6 +277,59 @@ public class LoginSignup extends AppCompatActivity {
         loginButton=findViewById(R.id.login_btn);
         loginEmailAddress=findViewById(R.id.loginEmailAddress);
         loginPassword=findViewById(R.id.loginPassword);
+        forgotPassword=findViewById(R.id.forgotpassword);
+        passwordToggleLogin =findViewById(R.id.password_toggle_login);
+        passwordToggleSignUp=findViewById(R.id.password_toggle_sign_up);
+        Typeface face = ResourcesCompat.getFont(this, R.font.tregular);
+
+
+        passwordToggleSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(signupPassword.getInputType() == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+                    passwordToggleSignUp.setImageResource(R.drawable.eye_decrypted);
+                    signupPassword.setInputType( InputType.TYPE_CLASS_TEXT |
+                            InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    signupPassword.setTypeface(face);
+                }else {
+                    passwordToggleSignUp.setImageResource(R.drawable.eye_encrypted);
+                    signupPassword.setInputType( InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD );
+                    signupPassword.setTypeface(face);
+                }
+                signupPassword.setSelection(signupPassword.getText().length());
+                signupPassword.setTypeface(face);
+            }
+        });
+
+
+        passwordToggleLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(loginPassword.getInputType() == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD) {
+                    passwordToggleLogin.setImageResource(R.drawable.eye_decrypted);
+                    loginPassword.setInputType( InputType.TYPE_CLASS_TEXT |
+                            InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+
+                    loginPassword.setTypeface(face);
+                }else {
+                    passwordToggleLogin.setImageResource(R.drawable.eye_encrypted);
+                    loginPassword.setInputType( InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD );
+                    loginPassword.setTypeface(face);
+                }
+                loginPassword.setSelection(loginPassword.getText().length());
+                loginPassword.setTypeface(face);
+            }
+        });
+
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ResetPassword resetPassword=new ResetPassword();
+                resetPassword.show(getSupportFragmentManager(),"Reset Password");
+            }
+        });
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -288,10 +360,11 @@ public class LoginSignup extends AppCompatActivity {
             }
         });
 
+
     }
 
     @Override
     public void onBackPressed() {
-
+        finishAffinity();
     }
 }

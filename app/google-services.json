@@ -33,6 +33,36 @@
             }
           ]
         }
+      },
+      "admob_app_id": "ca-app-pub-6981984644596212~7428934275"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478280879979:android:6bf5903353627ca038c62e",
+        "android_client_info": {
+          "package_name": "com.yugentechlabs.hpquizadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478280879979-9u20m70joq9jtpi3fsov3o04qpdp9m03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBerL4FOQy88Xz_X0v2YN_hnASMNy1ZEC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478280879979-9u20m70joq9jtpi3fsov3o04qpdp9m03.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
       }
     }
   ],
