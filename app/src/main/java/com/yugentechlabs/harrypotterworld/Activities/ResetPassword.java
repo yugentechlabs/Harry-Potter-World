@@ -3,6 +3,7 @@ package com.yugentechlabs.harrypotterworld.Activities;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,19 +41,19 @@ public class ResetPassword extends AppCompatDialogFragment {
         email=view.findViewById(R.id.resetemail);
         resetButton=(TextView) view.findViewById(R.id.resetpass);
 
-        progress=new ProgressDialog(getContext());
-        progress.setTitle("Please Wait...");
-        progress.setCancelable(false);
-        progress.show();
-        progress.setContentView(R.layout.loading_dialog);
-        progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+
 
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth auth = FirebaseAuth.getInstance();
                 String emailAddress=email.getText().toString();
-
+                progress=new ProgressDialog(getContext());
+                progress.setTitle("Please Wait...");
+                progress.setCancelable(false);
+                progress.show();
+                progress.setContentView(R.layout.loading_dialog);
+                progress.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 auth.sendPasswordResetEmail(emailAddress)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -81,7 +82,6 @@ public class ResetPassword extends AppCompatDialogFragment {
 
         return builder.create();
     }
-
 
 
 }

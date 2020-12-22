@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -115,14 +117,15 @@ public class LoginSignup extends AppCompatActivity {
         String password=loginPassword.getText().toString();
 
         if(email.equals("")){
-
+            YoYo.with(Techniques.Shake).duration(700).repeat(0).playOn(loginButton);
             Toast.makeText(LoginSignup.this, "Email required for login!", Toast.LENGTH_SHORT).show();
         }
         else if(password.length()<6){
-
+            YoYo.with(Techniques.Shake).duration(700).repeat(0).playOn(loginButton);
             Toast.makeText(LoginSignup.this, "Password should have minimum 6 characters", Toast.LENGTH_SHORT).show();
         }
         else {
+            YoYo.with(Techniques.RubberBand).duration(500).repeat(0).playOn(loginButton);
             progress=new ProgressDialog(LoginSignup.this);
             progress.setCancelable(false);
             progress.show();
@@ -188,12 +191,15 @@ public class LoginSignup extends AppCompatActivity {
         String password=signupPassword.getText().toString();
 
         if(email.equals("")){
+            YoYo.with(Techniques.Shake).duration(700).repeat(0).playOn(signupButton);
             Toast.makeText(LoginSignup.this, "Email required for signup!", Toast.LENGTH_SHORT).show();
         }
         else if(password.length()<6){
+            YoYo.with(Techniques.Shake).duration(700).repeat(0).playOn(signupButton);
             Toast.makeText(LoginSignup.this, "Password should have minimum 6 characters", Toast.LENGTH_SHORT).show();
         }
         else {
+            YoYo.with(Techniques.RubberBand).duration(500).repeat(0).playOn(signupButton);
             progress=new ProgressDialog(LoginSignup.this);
             progress.setCancelable(false);
             progress.show();
@@ -326,6 +332,7 @@ public class LoginSignup extends AppCompatActivity {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.Wobble).duration(400).repeat(0).playOn(forgotPassword);
                 ResetPassword resetPassword=new ResetPassword();
                 resetPassword.show(getSupportFragmentManager(),"Reset Password");
             }
@@ -334,6 +341,7 @@ public class LoginSignup extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startSignup();
             }
         });
@@ -341,6 +349,7 @@ public class LoginSignup extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startLogin();
             }
         });
@@ -348,6 +357,7 @@ public class LoginSignup extends AppCompatActivity {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.RubberBand).duration(400).repeat(0).playOn(signup);
                 showSignup();
             }
         });
@@ -356,6 +366,7 @@ public class LoginSignup extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.RubberBand).duration(400).repeat(0).playOn(login);
                 showLogin();
             }
         });

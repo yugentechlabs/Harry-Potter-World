@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -23,6 +24,7 @@ public class WizardingQuiz extends AppCompatActivity {
     TextView level,question,one,two,three,four,questionNumber;
     int quesNum;
     Level cLevel;
+    ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class WizardingQuiz extends AppCompatActivity {
         three=findViewById(R.id.three_image);
         four=findViewById(R.id.four_image);
         questionNumber=findViewById(R.id.question_number);
+        backButton=findViewById(R.id.back_btn);
 
         String l="Level "+cLevel.getLevelnum();
         level.setText(l);
@@ -52,6 +55,14 @@ public class WizardingQuiz extends AppCompatActivity {
         questionSets = new QuestionSets(cLevel.getLevel());
         showQuestion(questionSets.getQuesRandomized(quesNum));
        // getLevelfromDB();
+
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         one.setOnClickListener(new View.OnClickListener() {
             @Override

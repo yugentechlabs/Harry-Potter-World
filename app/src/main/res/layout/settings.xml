@@ -5,10 +5,12 @@
     android:layout_width="wrap_content"
     android:layout_gravity="center"
     android:layout_height="wrap_content"
+    android:paddingBottom="22dp"
     android:background="@drawable/blackboard">
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -35,11 +37,11 @@
                 android:shadowDy="4"
                 android:shadowRadius="5"
                 android:gravity="center"
-                android:fontFamily="@font/hp"
+                android:fontFamily="@font/tregular"
                 android:paddingHorizontal="10dp"
                 android:text="Settings"
                 android:textColor="@color/white"
-                android:textSize="38sp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
 
 
@@ -57,6 +59,52 @@
 
         </LinearLayout>
 
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:layout_marginHorizontal="45dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:orientation="horizontal">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:shadowColor="#000000"-->
+<!--                android:shadowDx="4"-->
+<!--                android:shadowDy="4"-->
+<!--                android:shadowRadius="5"-->
+<!--                android:fontFamily="@font/textralight"-->
+<!--                android:paddingHorizontal="15dp"-->
+<!--                android:text="Music"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
+
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/music_btn"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="35dp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:layout_marginEnd="10dp"-->
+<!--                android:layout_weight=".5"-->
+<!--                android:background="@drawable/main_menu"-->
+<!--                android:gravity="center"-->
+<!--                android:text=""-->
+<!--                android:paddingHorizontal="10dp"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold" />-->
+
+
+<!--        </LinearLayout>-->
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -66,53 +114,7 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:shadowColor="#000000"
-                android:shadowDx="4"
-                android:shadowDy="4"
-                android:shadowRadius="5"
-                android:fontFamily="@font/hp"
-                android:paddingHorizontal="15dp"
-                android:text="Music"
-                android:textColor="@color/white"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-
-
-            <TextView
-                android:id="@+id/music_btn"
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="10dp"
-                android:layout_weight=".5"
-                android:background="@drawable/main_menu"
-                android:gravity="center"
-                android:text=""
-                android:paddingHorizontal="10dp"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="45dp"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
@@ -121,11 +123,11 @@
                 android:shadowDy="4"
                 android:shadowRadius="5"
                 android:gravity="center_vertical"
-                android:fontFamily="@font/hp"
+                android:fontFamily="@font/textralight"
                 android:paddingStart="15dp"
                 android:text="Change Nickname"
                 android:textColor="@color/white"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -133,7 +135,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="5dp"
-                android:layout_weight="1"
+                android:layout_weight="0.7"
                 android:gravity="center"
                 android:fontFamily="@font/tregular"
                 android:paddingHorizontal="15dp"
@@ -182,28 +184,64 @@
 
 
 
+
+
         <TextView
-            android:id="@+id/help"
+            android:id="@+id/rate"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:gravity="center_vertical"
-            android:layout_marginHorizontal="60dp"
-            android:text="Help"
+            android:fontFamily="@font/textralight"
             android:shadowColor="#000000"
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="5"
-            android:fontFamily="@font/hp"
+            android:layout_marginHorizontal="60dp"
+            android:text="Rate the app"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/share"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/textralight"
+            android:shadowColor="#000000"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="5"
+            android:layout_marginHorizontal="60dp"
+            android:text="Share"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+
+        <TextView
+            android:id="@+id/help"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/textralight"
+            android:shadowColor="#000000"
+            android:shadowDx="4"
+            android:shadowDy="4"
+            android:shadowRadius="5"
+            android:layout_marginHorizontal="60dp"
+            android:text="Help"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
 
         <TextView
             android:id="@+id/privacy"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:gravity="center_vertical"
-            android:fontFamily="@font/hp"
+            android:fontFamily="@font/textralight"
             android:shadowColor="#000000"
             android:shadowDx="4"
             android:shadowDy="4"
@@ -211,7 +249,7 @@
             android:layout_marginHorizontal="60dp"
             android:text="Privacy Policy"
             android:textColor="@color/white"
-            android:textSize="25sp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
 
 
@@ -236,7 +274,7 @@
         <TextView
             android:id="@+id/signout"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="50dp"
             android:gravity="center"
             android:layout_marginHorizontal="80dp"
             android:text="Sign out"
@@ -244,9 +282,11 @@
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="5"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
             android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:fontFamily="@font/hp"
+            android:textSize="16sp"
+            android:fontFamily="@font/tlight"
             android:background="@drawable/main_menu"
             />
 
@@ -256,19 +296,20 @@
         <TextView
             android:id="@+id/yugen"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="35dp"
             android:gravity="center"
-            android:layout_marginVertical="25dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="10dp"
             android:layout_marginHorizontal="50dp"
             android:text="Made by Yugen Techlabs"
-            android:fontFamily="@font/beneg___"
-            android:paddingBottom="40dp"
+            android:fontFamily="@font/textralight"
+            android:paddingBottom="10dp"
             android:textColor="#ABFFFFFF"
             android:shadowColor="#000000"
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="5"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textStyle="bold"/>
 
 

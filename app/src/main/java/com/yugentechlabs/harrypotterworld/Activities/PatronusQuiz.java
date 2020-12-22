@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -19,6 +20,7 @@ public class PatronusQuiz extends AppCompatActivity {
     Patronus patronus;
     int quesNum;
     ProgressDialog progress;
+    ImageView backButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +54,14 @@ public class PatronusQuiz extends AppCompatActivity {
                 next();
             }
         });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
 
         showQues();
     }
@@ -88,6 +98,8 @@ public class PatronusQuiz extends AppCompatActivity {
         one=findViewById(R.id.one);
         two=findViewById(R.id.two);
         three=findViewById(R.id.three_image);
+        backButton=findViewById(R.id.back_btn);
+
     }
 
     void showLoading(){

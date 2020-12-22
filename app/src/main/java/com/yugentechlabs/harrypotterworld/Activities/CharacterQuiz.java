@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -22,6 +23,7 @@ public class CharacterQuiz extends AppCompatActivity {
         TextView question,one,two,three,four;
         Character character;
         int quesNum;
+        ImageView backButton;
     ProgressDialog progress;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,12 @@ public class CharacterQuiz extends AppCompatActivity {
 
             showLoading();
 
-
+            backButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
 
             one.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -127,6 +134,8 @@ public class CharacterQuiz extends AppCompatActivity {
             three=findViewById(R.id.three_image);
 
             four=findViewById(R.id.four_image);
+
+            backButton=findViewById(R.id.back_btn);
 
         }
 

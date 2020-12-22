@@ -15,6 +15,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView hpQuiz,wandQuiz,patronusQuiz,charQuiz,sortingQuiz;
     TextView nickname,of;
     ImageView settings,banner,houseBanner,wizardButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         putBanner();
         showRateApp();
+
 
         Settings.MyDialogCloseListener closeListener = new Settings.MyDialogCloseListener() {
             @Override
@@ -46,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.Wobble).duration(400).repeat(0).playOn(settings);
                 Settings s=new Settings();
                 s.DismissListener(closeListener);
                 s.show(getSupportFragmentManager(),"Settings");
@@ -56,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         wizardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.Wobble).duration(400).repeat(0).playOn(wizardButton);
                 LocalUserData l=new LocalUserData(MainActivity.this);
                 if(l.getHouse().equals("")){
                     Toast.makeText(MainActivity.this, "Play the Sorting Quiz to unlock your Hogwarts ID card!", Toast.LENGTH_SHORT).show();
@@ -192,6 +199,11 @@ public class MainActivity extends AppCompatActivity {
       ExitApp e=new ExitApp();
       e.show(getSupportFragmentManager(),"Exit");
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override

@@ -17,7 +17,7 @@ import static java.lang.Thread.sleep;
 public class WandQuiz extends AppCompatActivity {
     ProgressDialog progress;
     int quesNum;
-    ImageView submit;
+    ImageView submit,backButton;
     TextView question,one,two,three,wandText;
 
     @Override
@@ -33,6 +33,13 @@ public class WandQuiz extends AppCompatActivity {
         YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(question);
         YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(wandText);
         YoYo.with(Techniques.FadeIn).duration(700).repeat(0).playOn(submit);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,6 +169,7 @@ public class WandQuiz extends AppCompatActivity {
         three=findViewById(R.id.three_image);
         wandText=findViewById(R.id.wand_text);
         submit=findViewById(R.id.submit);
+        backButton=findViewById(R.id.back_btn);
     }
 
 

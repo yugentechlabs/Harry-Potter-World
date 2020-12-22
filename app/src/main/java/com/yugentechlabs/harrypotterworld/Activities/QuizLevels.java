@@ -11,6 +11,9 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -113,6 +116,7 @@ public class QuizLevels extends AppCompatActivity {
                 if((position+1)>currentLevel){
                     Toast.makeText(QuizLevels.this, "Play to unlock levels.", Toast.LENGTH_SHORT).show();
                 }else {
+                    YoYo.with(Techniques.Tada).duration(400).repeat(0).playOn(view);
                     Intent intent = new Intent(QuizLevels.this, WizardingQuiz.class);
                     intent.putExtra("level", levels.get(position));
                     startActivity(intent);
