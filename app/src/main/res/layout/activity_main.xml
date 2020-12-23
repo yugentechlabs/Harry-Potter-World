@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/mainscreen_bg"
-    tools:context=".Activities.MainActivity" >
+    tools:context=".Activities.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -37,10 +37,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:fontFamily="@font/hp"
-            android:visibility="invisible"
             android:text="Sanak Maitra"
             android:textColor="#FFFFFF"
             android:textSize="25dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -61,11 +61,11 @@
             android:layout_width="wrap_content"
             android:layout_height="15dp"
             android:fontFamily="@font/hp"
-            android:visibility="invisible"
             android:text="of"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="#FFFFFF"
             android:textSize="15dp"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/username" />
@@ -81,7 +81,6 @@
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="2"
-            app:layout_constraintTop_toBottomOf="@id/logo"
             android:text="Harry Potter World"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
@@ -89,6 +88,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.416"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo"
             tools:layout_editor_absoluteY="307dp" />
 
         <ImageView
@@ -114,14 +114,14 @@
             android:fontFamily="@font/hp"
             android:foregroundGravity="bottom"
             android:gravity="center_horizontal"
-            android:text="Wizarding  Quiz"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="35dp"
             android:shadowColor="#6091FF"
             android:shadowDx="4"
             android:shadowDy="4"
             android:shadowRadius="2"
+            android:text="Wizarding  Quiz"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="35dp"
             app:layout_constraintBottom_toBottomOf="@+id/hpquizimage"
             app:layout_constraintEnd_toEndOf="@+id/hpquizimage"
             app:layout_constraintStart_toStartOf="@+id/hpquizimage"
@@ -141,7 +141,7 @@
             <HorizontalScrollView
                 android:id="@+id/horizontalScrollView"
                 android:layout_width="match_parent"
-                android:layout_height="140dp">
+                android:layout_height="120dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -171,11 +171,11 @@
                             android:fontFamily="@font/hp"
                             android:foregroundGravity="center"
                             android:gravity="center_horizontal"
-                            android:text="What is your house?"
                             android:shadowColor="#6091FF"
                             android:shadowDx="4"
                             android:shadowDy="4"
                             android:shadowRadius="2"
+                            android:text="What is your house?"
                             android:textAlignment="center"
                             android:textColor="#FFFFFF"
                             android:textSize="35dp"
@@ -207,14 +207,14 @@
                             android:fontFamily="@font/hp"
                             android:foregroundGravity="center"
                             android:gravity="center_horizontal"
-                            android:text="Which charater are you?"
-                            android:textAlignment="center"
-                            android:textColor="#FFFFFF"
-                            android:textSize="35dp"
                             android:shadowColor="#6091FF"
                             android:shadowDx="4"
                             android:shadowDy="4"
                             android:shadowRadius="2"
+                            android:text="Which charater are you?"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="35dp"
                             app:layout_constraintBottom_toBottomOf="@id/textView8"
                             app:layout_constraintEnd_toEndOf="@+id/charquizimage"
                             app:layout_constraintStart_toStartOf="@+id/charquizimage" />
@@ -243,14 +243,14 @@
                             android:fontFamily="@font/hp"
                             android:foregroundGravity="center"
                             android:gravity="center_horizontal"
-                            android:text="What is your Patronus?"
-                            android:textAlignment="center"
-                            android:textColor="#FFFFFF"
-                            android:textSize="35dp"
                             android:shadowColor="#6091FF"
                             android:shadowDx="4"
                             android:shadowDy="4"
                             android:shadowRadius="2"
+                            android:text="What is your Patronus?"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="35dp"
                             app:layout_constraintBottom_toBottomOf="@id/patronusquiz"
                             app:layout_constraintEnd_toEndOf="@+id/patronusquizimage"
                             app:layout_constraintStart_toStartOf="@+id/patronusquizimage" />
@@ -280,14 +280,14 @@
                             android:fontFamily="@font/hp"
                             android:foregroundGravity="center"
                             android:gravity="center_horizontal"
-                            android:text="Find your wand"
-                            android:textAlignment="center"
-                            android:textColor="#FFFFFF"
-                            android:textSize="35dp"
                             android:shadowColor="#6091FF"
                             android:shadowDx="4"
                             android:shadowDy="4"
                             android:shadowRadius="2"
+                            android:text="Find your wand"
+                            android:textAlignment="center"
+                            android:textColor="#FFFFFF"
+                            android:textSize="35dp"
                             app:layout_constraintBottom_toBottomOf="@id/textView9"
                             app:layout_constraintEnd_toEndOf="@+id/wandquizimage"
                             app:layout_constraintStart_toStartOf="@+id/wandquizimage" />
@@ -304,14 +304,13 @@
             android:layout_height="40dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/train_btn"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/owl_btn"
-            tools:layout_editor_absoluteY="764dp"
-            app:layout_constraintEnd_toStartOf="@id/train_btn"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="25dp"
-            />
+            tools:layout_editor_absoluteY="764dp" />
 
         <ImageView
             android:id="@+id/train_btn"
@@ -319,14 +318,12 @@
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
-            app:srcCompat="@drawable/train_btn"
-            tools:layout_editor_absoluteX="126dp"
+            android:layout_marginBottom="25dp"
             android:visibility="gone"
-            tools:layout_editor_absoluteY="764dp"
-            app:layout_constraintStart_toEndOf="@id/owl_btn"
-            app:layout_constraintEnd_toStartOf="@id/wizard_btn"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="25dp"/>
+            app:layout_constraintEnd_toStartOf="@id/wizard_btn"
+            app:layout_constraintStart_toEndOf="@id/owl_btn"
+            app:srcCompat="@drawable/train_btn" />
 
         <ImageView
             android:id="@+id/wizard_btn"
@@ -334,13 +331,11 @@
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
-            app:srcCompat="@drawable/wizard"
-            tools:layout_editor_absoluteX="217dp"
-            tools:layout_editor_absoluteY="763dp"
-            app:layout_constraintStart_toEndOf="@id/train_btn"
-            app:layout_constraintEnd_toStartOf="@id/settings_btn"
+            android:layout_marginBottom="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="25dp"/>
+            app:layout_constraintEnd_toStartOf="@id/settings_btn"
+            app:layout_constraintStart_toEndOf="@id/train_btn"
+            app:srcCompat="@drawable/wizard" />
 
         <ImageView
             android:id="@+id/settings_btn"
@@ -348,12 +343,11 @@
             android:layout_height="40dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/settings"
-            tools:layout_editor_absoluteY="763dp"
-            app:layout_constraintStart_toEndOf="@id/wizard_btn"
+            android:layout_marginBottom="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="25dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/wizard_btn"
+            app:srcCompat="@drawable/settings" />
 
         <ImageView
             android:id="@+id/logo"

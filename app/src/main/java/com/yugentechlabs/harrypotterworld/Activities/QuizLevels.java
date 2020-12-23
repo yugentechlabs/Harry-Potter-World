@@ -49,7 +49,7 @@ public class QuizLevels extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                QuizLevels.super.onBackPressed();
+                startActivity(new Intent(QuizLevels.this,MainActivity.class));
             }
         });
 

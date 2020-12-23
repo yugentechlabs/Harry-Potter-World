@@ -2,20 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
     android:id="@+id/score"
     android:background="@android:color/transparent">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srcCompat="@drawable/score_bg"
-        app:layout_constraintStart_toStartOf="@id/score"
-        app:layout_constraintEnd_toEndOf="@id/score"
-        app:layout_constraintTop_toTopOf="@id/score"
-        app:layout_constraintBottom_toBottomOf="@id/score"/>
 
 
     <LinearLayout
@@ -23,7 +14,7 @@
         android:layout_height="450dp"
         android:orientation="vertical"
         android:padding="20dp"
-
+        android:background="@drawable/score_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +26,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text=" LEVEL CLEARED!"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="70dp"
             android:textSize="40dp"
             android:fontFamily="@font/hp"
             android:layout_marginBottom="25dp"/>
