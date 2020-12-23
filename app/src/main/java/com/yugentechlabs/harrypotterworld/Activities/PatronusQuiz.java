@@ -1,7 +1,6 @@
 package com.yugentechlabs.harrypotterworld.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +10,6 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.Patronus;
-
 import static java.lang.Thread.sleep;
 
 public class PatronusQuiz extends AppCompatActivity {
@@ -21,6 +19,7 @@ public class PatronusQuiz extends AppCompatActivity {
     int quesNum;
     ProgressDialog progress;
     ImageView backButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,11 +83,8 @@ public class PatronusQuiz extends AppCompatActivity {
         if(quesNum<5)
             showQues();
         else {
-
             PatronusCard patronusCard=new PatronusCard();
             patronusCard.show(getSupportFragmentManager(),"Patronus");
-
-           // super.onBackPressed();
         }
     }
 

@@ -139,7 +139,6 @@
 
 
             <HorizontalScrollView
-                android:id="@+id/horizontalScrollView"
                 android:layout_width="match_parent"
                 android:layout_height="120dp">
 

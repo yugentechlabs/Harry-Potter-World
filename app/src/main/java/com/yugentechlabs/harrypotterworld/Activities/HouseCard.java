@@ -59,9 +59,6 @@ public class HouseCard extends AppCompatDialogFragment {
             }
         });
 
-
-
-
         return builder.create();
     }
 

@@ -7,16 +7,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
-
 import com.yugentechlabs.harrypotterworld.R;
 
 public class ExitQuiz extends AppCompatDialogFragment {
-    TextView yes, no;
-
 
     @NonNull
     @Override

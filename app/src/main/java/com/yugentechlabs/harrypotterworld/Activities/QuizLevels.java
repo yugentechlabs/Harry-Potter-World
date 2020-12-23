@@ -11,7 +11,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,7 +55,6 @@ public class QuizLevels extends AppCompatActivity {
         levels=new ArrayList<Level>();
         db = FirebaseFirestore.getInstance();
 
-        //updateUI();
         getLevels();
 
     }
@@ -78,7 +76,6 @@ public class QuizLevels extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                //Log.d(TAG, document.getId() + " => " + document.getData());
                                 Level level=document.toObject(Level.class);
                                 levels.add(level);
                             }
@@ -91,7 +88,7 @@ public class QuizLevels extends AppCompatActivity {
                             }
                             updateUI();
                         } else {
-                            //Log.d(TAG, "Error getting documents: ", task.getException());
+                            Toast.makeText(QuizLevels.this, "Check your internet connection and try again!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -120,11 +117,6 @@ public class QuizLevels extends AppCompatActivity {
                     Intent intent = new Intent(QuizLevels.this, WizardingQuiz.class);
                     intent.putExtra("level", levels.get(position));
                     startActivity(intent);
-
-//                    Intent intent = new Intent(QuizLevels.this, WizardingQuiz.class);
-//                    intent.putExtra("levelNumber",String.valueOf(position+1));
-//                    startActivity(intent);
-                    //Toast.makeText(MainActivity.this, wallpaperURL.get(position), Toast.LENGTH_SHORT).show();
                 }
             }
         });

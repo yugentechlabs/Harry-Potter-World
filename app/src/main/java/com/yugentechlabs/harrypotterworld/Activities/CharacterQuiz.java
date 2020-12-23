@@ -113,8 +113,6 @@ public class CharacterQuiz extends AppCompatActivity {
             else {
                 CharacterCard c=new CharacterCard();
                 c.show(getSupportFragmentManager(),"Character");
-
-                // super.onBackPressed();
             }
         }
 

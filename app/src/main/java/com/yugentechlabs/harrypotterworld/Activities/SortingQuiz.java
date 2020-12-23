@@ -18,6 +18,7 @@ import java.util.Random;
 import static java.lang.Thread.sleep;
 
 public class SortingQuiz extends AppCompatActivity {
+
     ProgressDialog progress;
     ImageView black,white,oneImage,twoImage,threeImage,fourImage;
     TextView oneText,twoText,threeText,fourText,question;

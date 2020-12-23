@@ -4,22 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,6 +31,7 @@ import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.LocalUserData;
 
 public class LoginSignup extends AppCompatActivity {
+
     private FirebaseAuth mAuth;
     FirebaseFirestore db;
     TextView login,signup;
@@ -42,9 +39,6 @@ public class LoginSignup extends AppCompatActivity {
     TextView signupButton,loginButton, forgotPassword;
     ProgressDialog progress;
     ImageView passwordToggleLogin, passwordToggleSignUp;
-
-
-    private SignInButton gSignInButton;
 
     @Override
     public void onStart() {
@@ -137,21 +131,18 @@ public class LoginSignup extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
-                                Toast.makeText(LoginSignup.this, "Signup Authentication Success", Toast.LENGTH_SHORT).show();
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 getUserDoc(email);
                             } else {
                                 progress.dismiss();
                                 // If sign in fails, display a message to the user.
-                                Log.w("TAG", "signInWithEmail:failure", task.getException());
-                                Toast.makeText(LoginSignup.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
                             }
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(LoginSignup.this, "Please check your internet connection.",
+                    progress.dismiss();
+                    Toast.makeText(LoginSignup.this, "Authentication failed. Please check your internet connection.",
                             Toast.LENGTH_SHORT).show();
                 }
             });
@@ -211,14 +202,12 @@ public class LoginSignup extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
-                                Toast.makeText(LoginSignup.this, "Signup Authentication Success", Toast.LENGTH_SHORT).show();
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 makeUserDoc();
                             } else {
                                 progress.dismiss();
                                 // If sign in fails, display a message to the user.
-                                Log.w("TAG", "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(LoginSignup.this, "Authentication failed.",
+                                Toast.makeText(LoginSignup.this, "Authentication failed. Please check your internet connection!",
                                         Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -242,12 +231,10 @@ public class LoginSignup extends AppCompatActivity {
 
         User u=new User(email,nickname,"","","","","1");
         LocalUserData localUserData=new LocalUserData(LoginSignup.this,u.getEmail(),u.getHouse(),u.getWand(),u.getPatronus(),u.getCharacter(),u.getLevelnumber(),u.getNickname());
-        //Toast.makeText(LoginSignup.this, localUserData.getEmail()+localUserData.getLevelNumber(), Toast.LENGTH_SHORT).show();
         db.collection("User").document(email).set(u).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(LoginSignup.this, "Signup Success", Toast.LENGTH_SHORT).show();
                     progress.dismiss();
                     Intent intent = new Intent(LoginSignup.this, MainActivity.class);
                     intent.putExtra("rate_app",1);

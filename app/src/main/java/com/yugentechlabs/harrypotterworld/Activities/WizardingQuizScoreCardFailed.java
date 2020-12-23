@@ -18,7 +18,10 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.ResponseInfo;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.ads.rewarded.RewardItem;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdCallback;
@@ -30,7 +33,7 @@ public class WizardingQuizScoreCardFailed extends AppCompatDialogFragment {
     TextView continueBtn,mainMenu, helpText, adText,ortext;
     ImageView adButton;
     int x;
-    public static final String AD_UNIT="ca-app-pub-6981984644596212/6670192850";
+    public static final String AD_UNIT="ca-app-pub-6981984644596212/6148653957";
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -39,6 +42,11 @@ public class WizardingQuizScoreCardFailed extends AppCompatDialogFragment {
         LayoutInflater inflater=getActivity().getLayoutInflater();
         View view=inflater.inflate(R.layout.scorecard_failed,null);
 
+        MobileAds.initialize(getActivity(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
 
         setCancelable(false);
 
@@ -66,7 +74,6 @@ public class WizardingQuizScoreCardFailed extends AppCompatDialogFragment {
                 intent.putExtra("levelnum",WizardingQuiz.currentLevel);
                 startActivity(intent);
 
-                //getActivity().onBackPressed();
             }
         });
         final int[] errorCode = new int[1];
@@ -105,7 +112,7 @@ public class WizardingQuizScoreCardFailed extends AppCompatDialogFragment {
                 // Gets the cause of the error, if available.
                 AdError cause = error.getCause();
                 // All of this information is available via the error's toString() method.
-                Log.d("Ads", error.toString());
+                //Log.d("Ads", error.toString());
             }
         };
         AdRequest ad = new AdRequest.Builder().build();
@@ -164,7 +171,6 @@ public class WizardingQuizScoreCardFailed extends AppCompatDialogFragment {
                     rewardedAd.show(activityContext, adCallback);
                 } else {
                     progress.dismiss();
-                        //Toast.makeText(getContext(), "Sorry, we failed to display the Ad! Please try again later.", Toast.LENGTH_SHORT).show();
                     if(errorCode[0]==2 || errorCode[0]==0){
                         Toast.makeText(getContext(), "Sorry, we failed to display the Ad! Please check your internet connection.", Toast.LENGTH_SHORT).show();
                     }

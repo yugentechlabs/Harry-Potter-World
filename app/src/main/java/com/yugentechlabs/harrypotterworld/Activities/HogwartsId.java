@@ -19,6 +19,7 @@ public class HogwartsId extends AppCompatDialogFragment {
     TextView patronus,wand,name,character;
     LinearLayout card;
     View view;
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -28,7 +29,6 @@ public class HogwartsId extends AppCompatDialogFragment {
         view=inflater.inflate(R.layout.hogwarts_id,null);
 
         super.onCreate(savedInstanceState);
-
 
         builder.setView(view);
 

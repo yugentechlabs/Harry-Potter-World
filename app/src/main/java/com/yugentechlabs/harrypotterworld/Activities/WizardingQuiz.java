@@ -9,11 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.yugentechlabs.harrypotterworld.Models.Level;
 import com.yugentechlabs.harrypotterworld.R;
 import com.yugentechlabs.harrypotterworld.Utility.QuestionSets;
-
 import static java.lang.Thread.sleep;
 
 public class WizardingQuiz extends AppCompatActivity {
@@ -32,7 +34,11 @@ public class WizardingQuiz extends AppCompatActivity {
         setContentView(R.layout.activity_wizarding_quiz);
 
         quesNum=0;
-
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
 
         showLoading();
 
@@ -54,7 +60,6 @@ public class WizardingQuiz extends AppCompatActivity {
 
         questionSets = new QuestionSets(cLevel.getLevel());
         showQuestion(questionSets.getQuesRandomized(quesNum));
-       // getLevelfromDB();
 
 
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -98,11 +103,9 @@ public class WizardingQuiz extends AppCompatActivity {
 
     private void next(String answerSelected) {
 
-        //if answer wrong show dialog box
-        //if end of question arrived show another dialog
         currentLevel=cLevel.getLevelnum();
         if(questionSets.isCorrect(answerSelected) && quesNum<10){
-            //answer box color change
+
             showQuestion(questionSets.getQuesRandomized(quesNum));
         }
         else if(!questionSets.isCorrect(answerSelected))
@@ -117,41 +120,6 @@ public class WizardingQuiz extends AppCompatActivity {
 
         }
     }
-
-
-//    private void getLevelfromDB() {
-//
-//        final ProgressDialog progressDialog=new ProgressDialog(this);
-//        progressDialog.setTitle("Please Wait...");
-//        progressDialog.show();
-//
-//        DocumentReference docRef = db.collection("WizardingQuizLevels").document(levelNumber);
-//        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-//            @Override
-//            public void onSuccess(DocumentSnapshot documentSnapshot) {
-//                progressDialog.dismiss();
-//                try {
-//                    Level level = documentSnapshot.toObject(Level.class);
-//                    questionSets = new QuestionSets(level.getLevel());
-//                    showQuestion(questionSets.getQuesRandomized(quesNum));
-//                }
-//                catch (Exception e){
-//                    Toast.makeText(WizardingQuiz.this, "Unable to fetch level.", Toast.LENGTH_SHORT).show();
-//                    WizardingQuiz.super.onBackPressed();
-//                }
-//
-//            }
-//        }).addOnFailureListener(new OnFailureListener() {
-//            @Override
-//            public void onFailure(@NonNull Exception e) {
-//                WizardingQuiz.super.onBackPressed();
-//                Toast.makeText(WizardingQuiz.this, "Unable to fetch level.", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//    }
-
-
 
     private void showQuestion(String[] ques) {
         questionNumber.setText(("Question "+ (quesNum + 1)));

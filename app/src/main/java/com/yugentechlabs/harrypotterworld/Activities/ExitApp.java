@@ -2,28 +2,17 @@ package com.yugentechlabs.harrypotterworld.Activities;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
-
 import com.yugentechlabs.harrypotterworld.R;
 
-import static android.content.Context.VIBRATOR_SERVICE;
 
 public class ExitApp extends AppCompatDialogFragment {
-    TextView yes, no;
-
-
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

@@ -2,20 +2,13 @@ package com.yugentechlabs.harrypotterworld.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-
-import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Vibrator;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.yugentechlabs.harrypotterworld.R;
@@ -117,7 +110,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LocalUserData l=new LocalUserData(MainActivity.this);
-                if(!l.getHouse().equals("")){
+                if(l.getHouse().equals("")){
+                    Toast.makeText(MainActivity.this, "Play the Sorting Quiz to unlock your Hogwarts ID card!", Toast.LENGTH_SHORT).show();
+                }else {
                     HogwartsId s = new HogwartsId();
                     s.show(getSupportFragmentManager(), "Hogwarts ID");
                 }
@@ -195,15 +190,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
       ExitApp e=new ExitApp();
       e.show(getSupportFragmentManager(),"Exit");
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
     }
 
     @Override

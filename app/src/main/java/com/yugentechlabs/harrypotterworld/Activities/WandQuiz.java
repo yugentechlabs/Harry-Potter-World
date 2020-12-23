@@ -107,8 +107,6 @@ public class WandQuiz extends AppCompatActivity {
         wandText.setVisibility(View.INVISIBLE);
         if(quesNum==2){
             InputMethodManager imm = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-//Hide:
-
             imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0);
             one.setVisibility(View.VISIBLE);
             two.setVisibility(View.VISIBLE);
